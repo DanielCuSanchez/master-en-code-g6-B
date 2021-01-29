@@ -17,15 +17,15 @@ body{
 .main_content{
     width: 70%;
     background: #6C8DC8;
-    padding: 100px;
+    padding: 250px 100px;
     display: inline-block;
 }
 .right_panel{
+    position: absolute;
+    display: inline-block;
     width: 30%;
     background: #3BCB24;
-    padding: 100px;
-    display: inline-block;
-    margin: 20px;
+    padding: 250px 100px;
 }
 .footer{
     width: 100%;
