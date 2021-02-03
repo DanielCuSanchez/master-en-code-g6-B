@@ -1,5 +1,5 @@
 p{
-    color: blue;
+    color: red;
     font-size: 25px;
 }
 
@@ -8,8 +8,9 @@ p{
 }
 
 #titulo{
-    font-size: 50px;
+    font-size: 100px;
 }
 .clase22{
+    border: 2px solid blue;
     text-decoration:underline;
 }

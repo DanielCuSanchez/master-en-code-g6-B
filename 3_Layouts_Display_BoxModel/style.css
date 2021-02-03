@@ -21,7 +21,7 @@ body{
     display: inline-block;
 }
 .right_panel{
-    position: absolute;
+    float: right;
     display: inline-block;
     width: 30%;
     background: #3BCB24;

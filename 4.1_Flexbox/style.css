@@ -1,0 +1,17 @@
+.contenedor{
+    width: 600px;
+    height: 600px;
+    border: 2px solid red;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.caja{
+    width: 60px;
+    height: 60px;
+    background: blue;
+    border: 1px solid red;
+    margin: 2px;
+}
