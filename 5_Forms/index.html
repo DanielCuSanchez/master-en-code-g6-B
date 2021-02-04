@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles_form.css">
+  <title>Formularios</title>
+</head>
+<body>
+  <header>
+    <h1 class="title">Ejemplo de formularios</h1>
+  </header>
+  <main>
+    <form id="main-form" method="POST" action="">
+      <div class="form-group">
+        <label for="name">Nombre</label>
+        <input id="nombre" name="nombre" type="text" placeholder="Aquí va tu nombre" >
+      </div>
+      <div class="form-group">
+        <label for="email">Correo</label>
+        <input id="correo" name="correo" type="email" placeholder="Ingresa tu correo electrónico" >
+      </div>
+      <div class="form-group">
+        <label for="pass">Contraseña</label>
+        <input type="password" placeholder="Ingresa contraseña segura" id="pass" name="pass">
+      </div>
+      <div class="form-group">
+        <label for="edad">Edad</label>
+        <input id="edad" name="edad" type="number">
+      </div>
+      <div class="form-group">
+        <label for="nacimiento">Fecha de nacimiento</label>
+        <input id="nacimiento" name="nacimiento" type="date">
+      </div>
+      <div class="form-group">
+        <label for="hora">Hora</label>
+        <input id="hora" name="hora" type="time">
+      </div>
+      <div class="form-group">
+        <label for="salario">Rango salarial</label>
+        <!-- la propiedad oninput utila javascript, después lo explicaremos -->
+        <input id="salario" name="salario" type="range" min="15" max="150" oninput="this.nextElementSibling.value = this.value">
+        <output>24</output>
+      </div>
+      <div class="form-group">
+        <label for="color">Color Favorito</label>
+        <input id="color" name="color" type="color">
+      </div>
+      <div class="form-group check-box">
+        <p class="description">Vehículo:</p>
+        <input type="checkbox" id="vehicle1" name="vehicle1" value="bicicleta">
+        <label for="vehicle1"> Tengo una bicleta </label>
+        <br>
+        <input type="checkbox" id="vehicle2" name="vehicle2" value="auto">
+        <label for="vehicle2"> Tengo un auto </label>
+        <br>
+        <input type="checkbox" id="vehicle3" name="vehicle3" value="bote">
+        <label for="vehicle3"> Tengo un bote</label>
+        <br>
+      </div>
+      <div class="form-group">
+        <p class="description">Sexo:</p>
+        <input type="radio" name="opt1" id="opt1" value="M">
+        <label for="opt1">Masculino</label>
+        <input type="radio" name="opt1" id="opt1" value="F">
+        <label for="opt1">Femenino</label>
+        <input type="radio" name="opt1" id="opt1" value="X">
+        <label for="opt1">Otro</label>
+      </div>
+      <div class="form-group">
+        <label for="team">Elige un equipo</label>
+        <select name="team" id="team">
+          <option value="kong">Team Kong</option>
+          <option value="godzilla">Team Godzilla</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="dni">Subir DNI</label>
+        <input id="dni" name="dni" type="file">
+      </div>
+      <div class="form-group">
+        <input type="submit">
+      </div>
+    </form>
+  </main>
+</body>
+</html>
