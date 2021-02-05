@@ -1,0 +1,35 @@
+body{
+    margin: 0;
+}
+
+*{
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    
+    text-align: center;
+}
+
+.header{
+    padding: 60px;
+    width:100%;
+    background: blue;
+}
+
+.nav{
+    padding: 60px;
+    width:100%;
+    background: purple;
+}
+.contenedor{
+    border: 1px solid green;
+    display: flex;
+}
+.seccion-izquierda{
+    width:70%;
+    border: 1px solid red;
+}
+.seccion-derecha{
+    width:30%;
+     border: 1px solid red;
+}
