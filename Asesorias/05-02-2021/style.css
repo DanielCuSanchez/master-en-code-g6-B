@@ -14,6 +14,8 @@ body{
     padding: 60px;
     width:100%;
     background: blue;
+    position: sticky;
+    top: 0;
 }
 
 .nav{
@@ -24,6 +26,7 @@ body{
 .contenedor{
     border: 1px solid green;
     display: flex;
+    flex-direction: row;
 }
 .seccion-izquierda{
     width:70%;
@@ -31,5 +34,21 @@ body{
 }
 .seccion-derecha{
     width:30%;
-     border: 1px solid red;
+    border: 1px solid red;
+    background: purple;
+    position: fixed;
+    right: 0;
+    height: 300px;
+}
+.seccion{
+    background: green;
+    padding: 60px;
+}
+.article{
+    padding: 60px;
+    background: orchid;
+}
+.footer{
+    background: orange;
+    padding-bottom: 2000px;
 }
