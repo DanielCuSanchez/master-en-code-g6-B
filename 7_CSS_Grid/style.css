@@ -9,7 +9,7 @@ body{
 .contenedor_1{
     display:grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 20px;
+    gap: 40px;
     border: 2px solid red;
     padding:10px;
 }
