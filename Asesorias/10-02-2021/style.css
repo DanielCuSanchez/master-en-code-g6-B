@@ -1,0 +1,43 @@
+body{
+    margin: 0;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+.contenedor{
+    display: flex;
+}
+
+.caja{
+    height:200px;
+    width: 25%;
+    background: red;
+    padding-bottom: 50px;
+    margin: 1px;
+}
+
+section{
+    margin-top: 1000px;
+    background: blue;
+    height:100px;
+}
+
+@media screen and ( max-width: 450px ){
+    .contenedor{
+        flex-wrap: wrap;
+        flex-direction:row;
+    }
+    .caja{
+        width:50%;
+        margin: 0;
+        border:1px solid white;
+    }
+}
+
+@media screen and (min-width: 451px) and (max-width:850px){
+    .caja{
+        background:blue;
+    }
+}
