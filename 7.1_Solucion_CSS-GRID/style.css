@@ -24,7 +24,7 @@ body{
   border: 5px solid transparent;
 }
 
-.children.h1{
+.children:nth-child(1){
   grid-row: 1 / 3;
 }
 
