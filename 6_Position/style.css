@@ -10,23 +10,22 @@ body{
     position: static;
 
     display: inline-block;
-    border: 1px solid red;
+    border: 3px solid red;
 }
 
 .relative-position{
     position: relative;
     top: 100px;
+    left: 50px;
 
     display: inline-block;
-    border: 1px solid blue;
+    border: 3px solid blue;
 }
 
 
 .fixed-position{
     position: fixed;
-    top: 200px;
-
-
+    top: 600px;
     display: inline-block;
     border: 3px solid purple;
 }
@@ -43,7 +42,7 @@ body{
 }
 .position-absolute{
     position: absolute;
-    top: 0;
+    bottom: 0;
     background: rgba(128, 26, 26,0.5);
 
     border: 1px solid red;
@@ -54,9 +53,8 @@ body{
 .sticky-position{
     position: sticky;
     top: 0;
-
     display: inline-block;
-    border: 1px solid green;
+    border: 3px solid green;
 }
 p{
     padding-bottom: 3000px;
