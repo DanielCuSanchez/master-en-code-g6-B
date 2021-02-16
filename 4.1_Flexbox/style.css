@@ -4,14 +4,29 @@
     border: 2px solid red;
 
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
 }
-.caja{
-    width: 60px;
+.caja1{
+    width: 30%;
     height: 60px;
     background: blue;
+    border: 1px solid red;
+    margin: 2px;
+
+    display:flex;
+    justify-content: center;
+}
+.caja2{
+    width: 70%;
+    height: 60px;
+    background: blue;
+    border: 1px solid red;
+    margin: 2px;
+}
+
+.caja{
+    width: 20px;
+    height: 20px;
+    background: purple;
     border: 1px solid red;
     margin: 2px;
 }
