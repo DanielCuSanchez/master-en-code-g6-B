@@ -14,19 +14,26 @@
     border-radius: 0 10px 10px 0;
     cursor: pointer;
     display:none;
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 .btn-primary:hover{
     background: #bd0521;
 }
 
 .card{
+    position: relative;
     height: 300px;
     width: 150px;
     background: blue;
 }
+.card .img{
+    width:100%;
+    height:100%;
+}
 
-.card:hover{
-    background: #bd0521;
+.card:hover .btn-primary{
     display:block;
 }
 
