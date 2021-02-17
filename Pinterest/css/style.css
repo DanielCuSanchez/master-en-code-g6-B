@@ -87,6 +87,28 @@
     display:flex;
 }
 
+
+.contenedor{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width:100%;
+}
+
+
+.img-general{
+    width:400px;
+    height:300px;
+}
+
+@media screen and (max-width:1200px){
+    .img-general{
+        width: 300px;
+    }
+}
+
+
+
 @media screen and (max-width: 800px){
     .logo{
         height:64px;
@@ -104,5 +126,20 @@
         flex-direction: column;
         align-items:center;
         background: #4E6DC8;
+    }
+
+    .img-general{
+        width: 200px;
+    }
+}
+@media screen and (max-width: 400px){
+    .navbar{
+        flex-direction: column;
+        align-items:center;
+        background: #4E6DC8;
+    }
+
+    .img-general{
+        width: 100%;
     }
 }
