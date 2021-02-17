@@ -1,0 +1,30 @@
+body{
+    margin: 0;
+}
+*{
+    box-sizing: border-box;
+}
+
+.contenedor{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 10px;
+    width: 100%;
+    height: 100vh;
+}
+.elemento{
+    background: blue;
+}
+.elemento:nth-child(3){
+    background:red;
+    grid-column: 2;
+    grid-row: 1/4;
+}
+
+@media screen and (max-width:900px){
+    .contenedor{
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+    }
+}
