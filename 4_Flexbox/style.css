@@ -6,7 +6,6 @@ body{
     width: 100%;
     height: 100vh;
     background: #486D88;
-
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
@@ -20,7 +19,6 @@ body{
     background: #55AA55;
     margin-right: 200px;
     margin-bottom: 50px;
-    
     display: flex;
     flex-direction: column;
     align-items: center;
