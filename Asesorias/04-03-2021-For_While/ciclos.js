@@ -21,8 +21,16 @@ for(var contador = 1 ; contador <= 100 ; contador++ ){
             //0       //1
     suma  = suma  + contador;
 
-    console.log("Suma hasta el momento",suma,"#",contador)
+    //console.log("Suma hasta el momento",suma,"#",contador)
     // 1 = 1 + 2
     // 3 = 3 + 3
 }
-console.log(suma)
+//console.log(suma)
+
+var pais = ['Mexico', 'España', 'Argentina', 'Chile', 'Colombia', 'Venezuela', 'Perú', 'Costa Rica']
+
+var i = 0
+while(i < pais.length){
+    console.log(pais[i])
+    i++
+}
