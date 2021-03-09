@@ -57,3 +57,26 @@ console.log(casa.dueno)
 //casa.set(4000)
 
 //console.log(casa.precio);
+
+const macbook = {
+    modelo: "MAC",
+    cantidad: 12,
+    precio: 4500
+}
+
+const tienda = {
+    productos:[macbook,macbook],
+    obtenerSuma: function(){
+        let totalSuma = 0
+        for(let i = 0 ;  i < tienda.productos.length ; i++){
+            totalSuma += tienda.productos[i].precio
+        }
+        console.log(totalSuma);
+    }
+}
+
+tienda.obtenerSuma()
+
+
+
+
