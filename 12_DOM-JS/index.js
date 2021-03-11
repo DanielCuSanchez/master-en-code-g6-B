@@ -1,6 +1,8 @@
 
 //const lista = document.querySelector(".contenido")
 const cajita = document.getElementById("caja")
+const cajas = document.querySelectorAll("#caja")
+console.log(cajas);
 
 console.log(cajita)
 
