@@ -16,7 +16,7 @@ function cambiarEstilos(){
 
 boton.addEventListener('click', cambiarParrafo)
 
-botonCambiar.addEventListener('click', cambiarEstilos)
+botonCambiar.addEventListener("click", cambiarEstilos)
 
 function cambiarLista(){
   const elementosLista = document.querySelectorAll('li')
