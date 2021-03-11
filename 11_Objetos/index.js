@@ -65,12 +65,39 @@ const macbook = {
 }
 
 const tienda = {
-    productos:[macbook,macbook],
+    productos:[
+        macbook,
+        macbook,
+        {
+            modelo: "IPHONE",
+            cantidad: 12,
+            precio: 8500
+        },
+        {
+            modelo: "",
+            cantidad: 12,
+            precio: 8500
+        },
+        {
+            modelo: "IPHONE",
+            cantidad: 12,
+            precio: 8500
+        }
+        ,{
+            modelo: "IPHONE",
+            cantidad: 12,
+            precio: 8500,
+        },
+        macbook,
+        macbook,
+    ],
     obtenerSuma: function(){
         let totalSuma = 0
         for(let i = 0 ;  i < tienda.productos.length ; i++){
             totalSuma += tienda.productos[i].precio
         }
+        //tieda.productos[0].precio
+        //tieda.productos[1].precio
         console.log(totalSuma);
     }
 }
