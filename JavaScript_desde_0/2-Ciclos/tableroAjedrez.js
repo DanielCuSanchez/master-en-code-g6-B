@@ -2,14 +2,19 @@
 // Pasar esta cadena a console.logdebería mostrar algo como esto:
 
 
-const size = 8
-let acumulador = ''
-for (let contador = 0; contador < size; contador++) {
-    if( contador % 2 === 1 ){
-        acumulador += " # # # #\n"
-    }else{
-        acumulador += "# # # # \n"
+const size = 3
+let tabla = ''
+for (let i = 1; i <= size; i++) {
+    for (let j = 1; j <= size; j++) {
+        if( ( i + j) % 2 == 0 ){
+            tabla += "_"
+        }else{
+            tabla += "#"
+        }
     }
+    tabla += "\n"
 }
+console.log(tabla);
+// console.log("Hola\nNueva linea")
 
-console.log(acumulador);
+// console.log("Hola")
