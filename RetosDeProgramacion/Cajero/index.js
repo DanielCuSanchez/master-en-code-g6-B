@@ -1,66 +1,32 @@
-//Colocar el arreglador
-
-const cuentas = [
+//Base datos
+const cuentasUsuario = [
   { nombre: "Mali", saldo: 200, password: "pruebita1" },//0
   { nombre: "Gera", saldo: 290, password: "pruebita2" },//1
   { nombre: "Maui", saldo: 67, password: "pruebita3" }//2
 ]
 
-//ingresar desde el prompt usuario y password
+const contenedorInfoUsuario = document.getElementById("contenedorInfoUsuario")
+const inputUsuario = document.getElementById("inputUsuario").value
+const inputPassword = document.getElementById("inputPassword").value
+const botonValidarLogin = document.getElementById("botonValidarLogin")
 
 
-// for(let i = 0 ; i < cuentas.length ; i++){
-//     console.log(cuentas[i].nombre);
-// }
+botonValidarLogin.addEventListener("click",validarLogin)
+
+console.log(botonValidarLogin.addEventListener("click",validarLogin))
 
 
-//hacer un if comparlo dentro de un ciclo
-
-
-//cajero.validarIdentidad(usuario, password)
-
-//tener el objeto cajero
-
-const cajero = {
-    saldo : 100,
-    usuario : "",
-    ingresarUsuario: function(usuarioLoggeado){
-        this.usuario = usuarioLoggeado
-    },
-
-    validarIdentidad: function(usuario, password){
-        
-    },
-
-    retirarDinero: function(cantidad){
-        return this.saldo - cantidad
-    },
-    consultarSaldo: function(){
-        return saldo
-    },
-    depositar: function(cantidad){
-
-        return saldo
+function validarLogin(){
+  console.log("Entre");
+  console.log(inputUsuario)
+  console.log(inputPassword)
+  for (let contador = 0; contador < cuentasUsuario.length; contador++) {
+    if(inputUsuario === cuentasUsuario[contador].nombre &&  inputPassword === cuentasUsuario[contador].password ){
+      alert("Logueado")
+      return true
     }
+  }
+  return false
 }
-//Metodos consultar saldo, retirar y depositar $
 
-//cajero.ingresarUsuario()
-
-// while(respuesta != 4){
-//     let respuesta = prompt("1) saldo, 2) retirar, 3) depositar 4) salir")
-
-//     if(respuesta == 1){
-//         cajero.consultarSaldo()
-//     }
-//     else if(respuesta == 2){
-//         let cantidad = prompt("ingresa cuanto quieres retirar")
-//         cajero.retirarDinero(cantidad)
-//     }
-//     else if(respuesta == 3){
-//         let cantidad = prompt("ingresa cuanto quieres retirar")
-//         cajero.depositar(cantidad)
-//     }
-// }
-
-console.log(Object.keys(cajero));
+//console.log(validarLogin())
