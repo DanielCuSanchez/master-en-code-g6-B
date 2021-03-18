@@ -49,17 +49,56 @@ function inicioDeSesion(){
   mostrarElementos([menuCajero,botonCerrarSesion, contenedorInfoUsuario])
 
   botonConsultarSaldo.addEventListener("click",consultarSaldo)
+  botonDepositar.addEventListener("click", depositarAlaCuenta)
+  botonRetirar.addEventListener("click",retirarDeLaCuenta)
 
 }
 
 //Opciones de menu
 
 function consultarSaldo(){
-  contenedorInfoUsuario.innerHTML = cuentasUsuario[positionExtraida].saldo
+  const posicionExtraida = extraerPosicion()
+  contenedorInfoUsuario.innerHTML = "Saldo: " + cuentasUsuario[posicionExtraida].saldo
 }
 
+function depositarAlaCuenta(){
+  const inputDinero = parseInt(prompt("Ingresa el dinero"))
+  if(inputDinero  > 0){
+    //Consultamos la posicion
+    const posicionExtraida = extraerPosicion()
+
+    //Añaden dinero al usuario
+    cuentasUsuario[posicionExtraida].saldo = cuentasUsuario[posicionExtraida].saldo + inputDinero
+    //Mostramos el nuevo saldo en la caja de texto
+    contenedorInfoUsuario.innerHTML = "Nuevo Saldo: " + cuentasUsuario[posicionExtraida].saldo
+  }else{
+    contenedorInfoUsuario.innerHTML = "Ingresa saldo positivo"
+  }
+}
+
+function retirarDeLaCuenta(){
+  const posicionExtraida = extraerPosicion()
+  const inputDinero = parseInt(prompt("Cantidad a retirar"))
+  if(inputDinero <= cuentasUsuario[posicionExtraida].saldo){
+    //Quitar dinero al usuario
+    cuentasUsuario[posicionExtraida].saldo = cuentasUsuario[posicionExtraida].saldo - inputDinero
+    //Mostramos el nuevo saldo en la caja de texto
+    contenedorInfoUsuario.innerHTML = "Nuevo Saldo: " + cuentasUsuario[posicionExtraida].saldo
+  }
+}
 
 //Funciones auxiliares
+
+function extraerPosicion(){
+  let posicionExtraida = null
+  for (let contador = 0; contador < cuentasUsuario.length; contador++) {
+    if(inputUsuario.value === cuentasUsuario[contador].nombre &&  inputPassword.value === cuentasUsuario[contador].password ){
+      posicionExtraida = contador
+    }
+  }
+  return posicionExtraida
+}
+
 
 function ocultarElementos(elementos){ //recibe un arreglo
   for (let contador = 0; contador < elementos.length; contador++) {
@@ -76,11 +115,8 @@ function mostrarElementos(elementos){
 
 //Login principal
 function validarLogin(){
-  for (let contador = 0; contador < cuentasUsuario.length; contador++) {
-    if(inputUsuario.value === cuentasUsuario[contador].nombre &&  inputPassword.value === cuentasUsuario[contador].password ){
-      alert("Logueado")
-      return true
-    }
+  if(extraerPosicion()!==null){
+    return true
   }
   return false
 }
