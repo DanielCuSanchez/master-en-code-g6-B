@@ -62,7 +62,6 @@ function inicioDeSesion(){
 }
 
 //Opciones de menu
-
 function consultarSaldo(){
   const posicionExtraida = extraerPosicion()
   contenedorInfoUsuario.innerHTML = "Saldo: $" + cuentasUsuario[posicionExtraida].saldo
