@@ -32,6 +32,7 @@ function inicioDePrograma(){
       contenedorInfoUsuario.innerHTML = ""
     },1000)
   }
+
 }
 
 //Funciones
