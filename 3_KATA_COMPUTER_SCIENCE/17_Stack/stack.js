@@ -5,12 +5,20 @@ class Stack {
     this.counter = 0;
     this.collection = [];
   }
+  // agregarElementoPush(nuevo) {
+  //   this.collection.push(nuevo);
+  // }
+  // eliminarElementoPop() {
+  //   this.collection.pop();
+  // }
+
   push(nuevoElemento) {
     console.log("counter", this.counter);
     this.collection[this.counter] = nuevoElemento;
     this.counter++;
     return this.counter;
   }
+
   pop() {
     // pop te trae el último elemento que agregaste y lo elimina
     if (length() === 0) {
@@ -21,6 +29,7 @@ class Stack {
     this.counter--;
     return deleteElement;
   }
+
   length() {
     // tamaño de la pila
     return this.counter;
