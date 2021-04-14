@@ -25,28 +25,44 @@ class Queue {
   front() {
     return this.collection[0];
   }
+  // traer el peek o el ultimo elemento
+  back() {
+    return this.collection[this.collection.length - 1];
+  }
 }
+
 // TODO: Ver ejemplos de una cola.
-const queue = new Queue();
+const miFilaHamburguesas = new Queue();
+
+// console.log(miFilaHamburguesas.length());
+// console.log(miFilaHamburguesas.isEmpty());
+
+// let personas = [
+//   { nombre: "Shirliey", sexo: "M" },
+//   { nombre: "Daniel Cu", sexo: "H" },
+//   { nombre: "Dani Parc", sexo: "H" },
+// ];
 
 //Añadimos elementos al queue
-queue.enqueue({ nombre: "Shirliey", sexo: "M" });
-queue.enqueue({ nombre: "Daniel Cu", sexo: "H" });
+miFilaHamburguesas.enqueue({ nombre: "Shirliey", sexo: "M" });
+miFilaHamburguesas.enqueue({ nombre: "Daniel Cu", sexo: "H" });
+miFilaHamburguesas.enqueue({ nombre: "Dani Parc", sexo: "H" });
 
-console.log(queue.length());
+console.log(miFilaHamburguesas.length());
+console.log(miFilaHamburguesas.isEmpty());
 
-console.log(queue.isEmpty());
+// Eliminamos elemento
+console.log(miFilaHamburguesas.dequeue());
 
-//Eliminamos elemento
-queue.dequeue();
+console.log(miFilaHamburguesas.length());
+console.log(miFilaHamburguesas.isEmpty());
 
-console.log(queue.front());
-//Verificamos si el queue esta limpio
-console.log(queue.isEmpty());
+console.log(miFilaHamburguesas.front());
+console.log(miFilaHamburguesas.back());
 
-//Eliminamos elemento
-queue.dequeue();
+// Eliminamos elemento
+// miFilaHamburguesas.dequeue();
 
-console.log(queue.length());
+// console.log(miFilaHamburguesas.length());
 
-console.log(queue.isEmpty());
+// console.log(miFilaHamburguesas.isEmpty());
