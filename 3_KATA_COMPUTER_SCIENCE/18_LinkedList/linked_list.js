@@ -90,7 +90,7 @@ class LinkedList {
     let currentNode = this.head;
     let previousNode = null;
     if (currentNode.data === data) {
-      this.head = this.currentNode.next;
+      this.head = currentNode.next;
     } else {
       while (currentNode.data !== data && currentNode.next !== null) {
         previousNode = currentNode;
@@ -98,7 +98,7 @@ class LinkedList {
       }
       previousNode.next = currentNode.next;
 
-      //delete currentNode
+      //delete currentNode;
     }
 
     this.length--;
@@ -124,5 +124,6 @@ console.log("IMPRIMIR TODA LA LISTA", listaDeAlumnos);
 console.log("TRAER EL INDICE 3", listaDeAlumnos.get(3));
 
 console.log("ELIMINAR OSCAR", listaDeAlumnos.delete("Oscar"));
+console.log("ELIMINAR DANI CU", listaDeAlumnos.delete("Dani Cu"));
 
 console.log("IMPRIMIR TODA LA LISTA", listaDeAlumnos);
