@@ -36,7 +36,7 @@ class LinkedList {
   }
   // estos son los métodos o comportamientos de mi lista
   addAtEnd(data) {
-    console.log("add " + data);
+    //console.log("add " + data);
     const node = new Node(data); // { data: data, next : null }
     if (this.head === null) {
       this.head = node;
@@ -97,15 +97,20 @@ class LinkedList {
         currentNode = currentNode.next;
       }
       previousNode.next = currentNode.next;
+
+      //delete currentNode
     }
+
     this.length--;
+
+    return "La data " + data + " ha sido eliminada";
   }
 }
 
 const listaDeAlumnos = new LinkedList();
 
 listaDeAlumnos.addAtEnd("Dani Cu");
-
+listaDeAlumnos.addAtEnd("Dani Cu");
 listaDeAlumnos.addAtEnd("Shirley");
 
 listaDeAlumnos.addAtEnd("Dani Parc");
@@ -114,10 +119,10 @@ listaDeAlumnos.addAtEnd("Oscar");
 
 listaDeAlumnos.addAtEnd("Alejandra");
 
-console.log(listaDeAlumnos);
+console.log("IMPRIMIR TODA LA LISTA", listaDeAlumnos);
 
-console.log(listaDeAlumnos.get(3));
+console.log("TRAER EL INDICE 3", listaDeAlumnos.get(3));
 
-listaDeAlumnos.delete("Oscar");
+console.log("ELIMINAR OSCAR", listaDeAlumnos.delete("Oscar"));
 
-console.log(listaDeAlumnos);
+console.log("IMPRIMIR TODA LA LISTA", listaDeAlumnos);
