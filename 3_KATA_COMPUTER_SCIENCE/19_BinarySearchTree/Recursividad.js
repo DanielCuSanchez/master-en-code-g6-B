@@ -1,4 +1,4 @@
-// Funciones que reciben otras funciones: 
+// Funciones que reciben otras funciones:
 // const funcionDeOrdenSuperior =  (callback, a, b) => {
 //   const resultado = callback(a, b)
 //   console.log(resultado)
@@ -18,21 +18,19 @@
 //   return numeros;
 // }
 
-
 // Ejemplo de función de Fibonacci RECURSIVA
 function fibo(num) {
-  if(num < 2) {
-      return num;
-  }
-  else {
-      return fibo(num-1) + fibo(num - 2);
+  if (num < 2) {
+    return num;
+  } else {
+    return fibo(num - 1) + fibo(num - 2);
   }
 }
 
 // Creando arreglo con serie de Fibonacci
-numeros = []
-let nTerms = 13
-for(let i = 0; i <= nTerms; i++) {
-    numeros.push(fibo(i));
+numeros = [];
+let nTerms = 13;
+for (let i = 0; i <= nTerms; i++) {
+  numeros.push(fibo(i));
 }
-console.log(numeros)
+console.log(numeros);
