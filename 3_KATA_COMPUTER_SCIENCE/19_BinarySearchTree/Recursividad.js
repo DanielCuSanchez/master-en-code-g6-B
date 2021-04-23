@@ -46,6 +46,7 @@ numeros = [];
 let nTerms = 13;
 for (let i = 0; i <= nTerms; i++) {
   numeros.push(fibo(i));
+  //console.log(fibo(i));
 }
 console.log(numeros);
 
