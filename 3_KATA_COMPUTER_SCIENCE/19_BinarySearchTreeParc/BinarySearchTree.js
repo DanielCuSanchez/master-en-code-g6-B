@@ -146,10 +146,6 @@ bst.add(25);
 bst.add(32);
 bst.add(46);
 
-
-
-
-
 console.log('El valor mínimo es:',bst.findMin())
 console.log('El valor máximo es:',bst.findMax())
 
