@@ -18,13 +18,13 @@ class BST {
       this.root = new Node(data);
       return;
     } else {
-      const searchTree = function(node) {
+      const searchTree = function (node) {
         if (data < node.data) {
           if (node.left === null) {
             node.left = new Node(data);
             return;
           } else if (node.left !== null) {
-            return searchTree(node.left);
+            return searchTree(node.left); //
           }
         } else if (data > node.data) {
           if (node.right === null) {
@@ -49,7 +49,6 @@ class BST {
     return current.data;
   }
 
-
   findMax() {
     let current = this.root;
     while (current.right !== null) {
@@ -57,7 +56,6 @@ class BST {
     }
     return current.data;
   }
-
 
   find(data) {
     let current = this.root;
@@ -89,9 +87,8 @@ class BST {
     return false;
   }
 
-
   remove(data) {
-    const removeNode = function(node, data) {
+    const removeNode = function (node, data) {
       if (node == null) {
         return null;
       }
@@ -108,7 +105,6 @@ class BST {
         if (node.right == null) {
           return node.left;
         }
-        
         // el nodo tiene dos hijos
         var tempNode = node.right; // creamos un nodo temporal
         while (tempNode.left !== null) {
@@ -117,19 +113,18 @@ class BST {
         node.data = tempNode.data;
         node.right = removeNode(node.right, tempNode.data);
         return node;
-
       } else if (data < node.data) {
+        // solo tiene el hijo de la izquierda
         node.left = removeNode(node.left, data);
         return node;
-
       } else {
+        // solo tiene el hijo de la derecha
         node.right = removeNode(node.right, data);
         return node;
       }
-    }
+    };
     this.root = removeNode(this.root, data);
   }
-
 }
 
 const bst = new BST();
@@ -146,17 +141,13 @@ bst.add(25);
 bst.add(32);
 bst.add(46);
 
+console.log("El valor mínimo es:", bst.findMin());
+console.log("El valor máximo es:", bst.findMax());
 
+console.log(bst.find(28));
 
+bst.remove(28);
 
+console.log(bst.find(28));
 
-console.log('El valor mínimo es:',bst.findMin())
-console.log('El valor máximo es:',bst.findMax())
-
-console.log(bst.find(28))
-
-bst.remove(28)
-
-console.log(bst.find(28))
-
-console.log(bst.root.right)
+console.log(bst.root.right);
