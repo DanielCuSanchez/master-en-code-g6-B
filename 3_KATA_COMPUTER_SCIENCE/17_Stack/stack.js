@@ -36,7 +36,7 @@ class Stack {
   }
   peek() {
     // peek te trae el último elemento que agregaste
-    if (length() === 0) {
+    if (this.length() === 0) {
       return null;
     }
     return this.collection[this.counter];
