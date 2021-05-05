@@ -1,4 +1,5 @@
 function mergeSort(unsortedArray) {
+  //caso base -> hasta que se cumpla esta condicion sale de recursion
   if (unsortedArray.length <= 1) {
     return unsortedArray;
   }
@@ -17,7 +18,7 @@ function mergeSort(unsortedArray) {
   const sortedLeft = mergeSort(left);
   const sortedRight = mergeSort(right);
 
-  // Vencemos, ordenando y mezclando ambos arreglos de 1 o arreglos previamente ordenados
+  // Vencemos, ordenando y mezclando ambos arreglos
   return merge(sortedLeft, sortedRight);
 }
 
@@ -37,7 +38,7 @@ function merge(left, right) {
       rightIndex++; // movemos hacia adelante el indice derecho
     }
   }
-
+  //20
   // Concatenamos los excedentes. Si concatenamos arreglos vacíos, no se verán reflejados los vacíos
   const finalArray = resultArray
     .concat(left.slice(leftIndex))
@@ -45,11 +46,12 @@ function merge(left, right) {
 
   return finalArray;
 }
-
-const result = mergeSort([
+let lista = [
+  -2,
+  -7878,
   1,
   28,
-  3.1416,
+  3930,
   37,
   56,
   0,
@@ -70,6 +72,10 @@ const result = mergeSort([
   74,
   68,
   784,
-]);
+  -4,
+  -1,
+  9893893,
+];
+const listaOrdenada = mergeSort(lista);
 
-console.log(result);
+console.log(listaOrdenada);
