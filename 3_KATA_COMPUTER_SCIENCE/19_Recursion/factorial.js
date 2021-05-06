@@ -1,5 +1,4 @@
 const factorial = (numero) => {
-  //5
   //4  //3 //2 //1
   if (numero === 0) {
     return 1; //0
