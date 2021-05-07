@@ -7,18 +7,19 @@ const axios = require('axios')
 //   imprimirPersonaje(3)
 //   // Soy R2-D2 y vengo de Naboo
 
-function getPlaneta(urlPlaneta){
-  return axios.get(urlPlaneta)
+function getPlaneta(urlPlanet){
+  return axios.get(urlPlanet)
 }
 
 function getPersonaje(idPersonaje){
   return axios.get('https://swapi.dev/api/people/'+idPersonaje)
 }
 
-function imprimirPersonaje(idPersonaje){
-  let nombrePlaneta = '', nombrePersonaje = ''
+function imprimirPersonaje(id){
+  let nombrePersonaje = ''
+  let nombrePlaneta = ''
 
-  getPersonaje(idPersonaje)
+  getPersonaje(id)
     .then((response) => {
       let personaje = response.data
       nombrePersonaje = personaje.name
@@ -26,11 +27,10 @@ function imprimirPersonaje(idPersonaje){
     }).then(response =>{
       let planet = response.data
       nombrePlaneta = planet.name
-      console.log(`Soy ${nombrePersonaje} y vengo del planeta ${nombrePlaneta}`)
+      console.log(`Soy ${nombrePersonaje} y vengo del planeta ${nombrePlaneta}`);
     }).catch(error =>{
-      console.error(error)
+      console.error(error);
     })
-
 }
 
-imprimirPersonaje(6)
+imprimirPersonaje(1)
