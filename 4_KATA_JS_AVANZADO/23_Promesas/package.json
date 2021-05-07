@@ -1,0 +1,20 @@
+{
+  "name": "promesas",
+  "version": "1.0.0",
+  "description": "Algunos ejercicios con Promises para la clase de Dev.f G6",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "promises",
+    "devf",
+    "async",
+    "await"
+  ],
+  "author": "danyparc",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1"
+  }
+}
