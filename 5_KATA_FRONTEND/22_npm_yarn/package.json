@@ -1,0 +1,19 @@
+{
+  "name": "22_npm_yarn",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "yargs": "^17.0.1"
+  },
+  "devDependencies": {
+    "math-exact": "^1.0.5"
+  },
+  "description": ""
+}

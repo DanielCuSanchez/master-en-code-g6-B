@@ -1,4 +1,4 @@
-const request = require('request')
+const request = require("request");
 
 // let personaje = {}
 // console.time('GET')
@@ -21,34 +21,28 @@ const request = require('request')
 //   imprimirPersonaje(3)
 //   // Soy R2-D2 y vengo de Naboo
 
-
 function imprimirPersonaje(idPersonaje) {
-  let nombrePersonaje = '', nombrePlaneta = ''
-  let estado = 'cargando...'
-  console.time('personaje')
-  console.time('planeta')
-  getCharacter(idPersonaje)
+  getCharacter(idPersonaje);
 }
 
-function getCharacter(id){
-  request.get('https://swapi.dev/api/people/'+id, (error, response, body) => {
-    const personaje = JSON.parse(body)
-    nombrePersonaje = personaje.name
-    estado = 'personaje'
-    console.timeEnd('personaje')
-    getPlanet(personaje.homeworld)
-  })
+function getCharacter(id) {
+  request.get(
+    `https://swapi.dev/api/people/${id}/`,
+    (error, response, body) => {
+      const personaje = JSON.parse(body);
+      getPlanet(personaje.homeworld, personaje.name);
+    }
+  );
 }
 
-function getPlanet(urlPlanet){
+function getPlanet(urlPlanet, nombre) {
   // Peticion del planeta
   request.get(urlPlanet, (error, response, body) => {
-    const planeta = JSON.parse(body)
-    nombrePlaneta = planeta.name
-    estado = 'planeta'
-    console.timeEnd('planeta')
-    console.log(`Hola soy ${nombrePersonaje} y vengo del planeta ${nombrePlaneta}`)
-  })
+    const planeta = JSON.parse(body);
+    console.log(`Hola soy ${nombre} del ${planeta.name}`);
+  });
 }
 
-imprimirPersonaje(3)
+for (let i = 1; i <= 15; i++) {
+  imprimirPersonaje(i);
+}
