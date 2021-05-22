@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Petstore</h1>
+  <script>
+    const body = {
+      id: 3312,
+      category: {id: 9999, name: 'aves'},
+      name: 'Piolin',
+      photoUrls: [
+        'https://deconejo.site/wp-content/uploads/2020/03/frases-de-piol%C3%ADn.jpg'
+      ],
+      tags: [ {id: 0, name:'bird'}, {id: 2, name:'Looney tunes'}],
+      status: 'available'
+    }
+    function postPetFetch(pet){
+      return fetch('https://petstore.swagger.io/v2/pet/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(pet)
+      }).then(response => response.json())
+      .then(data => console.log(data))
+      .catch(err=> console.error(err))
+    }
+
+    postPetFetch(body)
+  </script>
+</body>
+</html>
