@@ -10,5 +10,5 @@ module.exports = {
     filename: "bundle.js",
     path: path.join(__dirname, "/dist"),
   },
-  mode: "development",
+  mode: "production",
 };

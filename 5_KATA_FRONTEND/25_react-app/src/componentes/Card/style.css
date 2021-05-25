@@ -1,0 +1,22 @@
+.card {
+  height: 300px;
+  width: 200px;
+  border: 2px solid purple;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.card-header,
+.card-footer {
+  background: rgb(79, 79, 110);
+  height: 50px;
+  padding: 5px;
+  text-align: center;
+}
+.card-body {
+  width: 100%;
+  height: auto;
+}
+.card-img {
+  width: 100%;
+}
