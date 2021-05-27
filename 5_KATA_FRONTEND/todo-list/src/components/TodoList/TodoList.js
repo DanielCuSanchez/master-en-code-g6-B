@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './TodoList.css'
 
 class TodoList extends Component {
 
@@ -65,24 +66,27 @@ class TodoList extends Component {
   render() {
     console.log('En el método render')
     return (
-      <div>
-        <form>
+      <div className="todo-list">
+        <form className="add-form">
           <input type="text"
+            className="add-input"
             id="input1"
             name="input1"
             value={this.state.newTodo}
             onChange={this.changeNewTodoValue}
             placeholder="Añade una tarea..." />
-          <button onClick={this.addNewTodo}>
+          <button 
+            className="add-button"
+            onClick={this.addNewTodo}>
             Agregar
           </button>
         </form>
 
-        <ul>
+        <ul className="list">
           {
             this.state.items
             .map((item, i) => (
-                <li key={i}>
+                <li className="list-item" key={i}>
                   <input 
                     type="checkbox" 
                     id={item.id} 

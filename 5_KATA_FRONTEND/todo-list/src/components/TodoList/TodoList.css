@@ -1,0 +1,23 @@
+ul{
+    list-style: none;
+    text-align: left;
+}
+
+.add-form{
+    background-color: aliceblue;
+}
+
+input.add-input{
+    height: 24px;
+    padding: 4px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+button.add-button{
+    background-color: cornflowerblue;
+    border-radius: 5px;
+    border: 2px solid black;
+    height: 34px;
+    padding: 4px;
+}
