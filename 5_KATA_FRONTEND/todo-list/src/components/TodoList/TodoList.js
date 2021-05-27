@@ -3,11 +3,12 @@ import React, { Component } from 'react';
 class TodoList extends Component {
 
   constructor(props) {
+    console.log('En el constructor')
     super(props);
     this.state = {
       items: [
-        {id: 0, value: 'comprar leche', checked: true },
-        {id: 1, value: 'comprar leche', checked: false}
+        { id: 0, value: 'Aprender JS', checked: true },
+        { id: 1, value: 'Aprender React', checked: false }
       ],
       newTodo: '',
     }
@@ -19,7 +20,7 @@ class TodoList extends Component {
 
   addNewTodo = (e) => {
     e.preventDefault()
-    if(!this.state.newTodo){
+    if (!this.state.newTodo) {
       return
     }
     let todos = this.state.items
@@ -32,14 +33,44 @@ class TodoList extends Component {
     this.setState({ items: todos, newTodo: '' })
   }
 
+  toggleCheckbox = (event) => {
+    const idInput = Number(event.target.id)
+    const item = this.state.items.find(item=> item.id === idInput)
+    item.checked = !item.checked  
+    this.setState({items: this.state.items}) // Cambio de estado para repintar
+  }
+
+  initState = () => {
+    const savedState = JSON.parse(window.localStorage.getItem('stateTodoList'))
+    console.log(savedState);
+    this.setState(savedState)
+  }
+  componentDidMount(){
+    console.log('En el método componentDidMount')
+    this.initState()
+  }
+
+  saveState = () => {
+    window.localStorage.setItem('stateTodoList', JSON.stringify(this.state))
+  }
+  componentDidUpdate(){
+    console.log('En el método componentDidUpdate')
+    this.saveState()
+  }
+
+  componentWillUnmount(){
+    console.log('En el método componentWillUnmount')
+  }
+
   render() {
+    console.log('En el método render')
     return (
       <div>
         <form>
-          <input type="text" 
-            id="input1" 
+          <input type="text"
+            id="input1"
             name="input1"
-            value={this.state.newTodo} 
+            value={this.state.newTodo}
             onChange={this.changeNewTodoValue}
             placeholder="Añade una tarea..." />
           <button onClick={this.addNewTodo}>
@@ -48,9 +79,19 @@ class TodoList extends Component {
         </form>
 
         <ul>
-          { 
+          {
             this.state.items
-              .map((item, i) => <li key={i}>{item.checked.toString()} {item.value} {item.id}</li>)
+            .map((item, i) => (
+                <li key={i}>
+                  <input 
+                    type="checkbox" 
+                    id={item.id} 
+                    checked={item.checked} 
+                    onChange={this.toggleCheckbox}
+                  />
+                  {item.value}
+                </li>
+              ))
           }
         </ul>
       </div>
