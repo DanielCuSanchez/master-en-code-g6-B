@@ -1,18 +1,15 @@
 import "./style.css";
 import React from "react";
 
-export const Card = ({ nombre }) => {
+export const Card = (props) => {
+  console.log("PROPS", props);
   return (
     <div className="card">
-      <div className="card-header">Soy el header</div>
+      <div className="card-header">{props.nombre}</div>
       <div className="card-body">
-        <img
-          className="card-img"
-          src="https://source.unsplash.com/random"
-          alt=""
-        />
+        <img className="card-img" src={props.img} alt="" />
       </div>
-      <div className="card-footer">Soy el footer</div>
+      <div className="card-footer">{props.edad}</div>
     </div>
   );
 };
