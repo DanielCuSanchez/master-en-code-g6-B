@@ -3,13 +3,21 @@ import React from "react";
 
 export const Card = (props) => {
   console.log("PROPS", props);
+
+  const handleClick = () => {
+    alert("Me van a eliminar :(");
+  };
+
   return (
     <div className="card">
       <div className="card-header">{props.nombre}</div>
       <div className="card-body">
         <img className="card-img" src={props.img} alt="" />
       </div>
-      <div className="card-footer">{props.edad}</div>
+      <div className="card-footer">
+        {props.edad}
+        <button onClick={handleClick}>x</button>
+      </div>
     </div>
   );
 };
