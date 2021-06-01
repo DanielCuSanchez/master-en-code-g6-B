@@ -16,7 +16,13 @@ export const Card = (props) => {
       </div>
       <div className="card-footer">
         {props.edad}
-        <button onClick={handleClick}>x</button>
+        <button
+          onClick={() => {
+            props.handlerRemove(props.nombre);
+          }}
+        >
+          x
+        </button>
       </div>
     </div>
   );
