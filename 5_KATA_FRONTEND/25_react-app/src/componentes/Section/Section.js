@@ -8,7 +8,14 @@ export const Section = () => {
 
   const handlerRemove = (eseValorDesdeCard) => {
     console.log(eseValorDesdeCard);
-    alert("Eliminar carta");
+
+    const nuevaLista = listaAlumnos.filter(
+      (alumno) => alumno.nombre !== eseValorDesdeCard
+    );
+
+    setListaAlumnos(nuevaLista);
+
+    alert("Eliminaste carta");
   };
 
   return (

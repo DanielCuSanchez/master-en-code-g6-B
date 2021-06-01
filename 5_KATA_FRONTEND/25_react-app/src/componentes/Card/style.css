@@ -9,8 +9,9 @@
 .card-header,
 .card-footer {
   background: rgb(79, 79, 110);
-  height: 50px;
-  padding: 5px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
   text-align: center;
 }
 .card-body {
