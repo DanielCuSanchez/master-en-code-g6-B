@@ -1,14 +1,12 @@
 .card {
-  width: 100%;
-  min-width: 300px;
-  min-height: 500px;
+  width: 200px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 .card-header,
 .card-footer {
-  background: rgb(79, 79, 110);
+  background: rgb(53, 53, 204);
   width: 100%;
   display: flex;
   justify-content: space-between;

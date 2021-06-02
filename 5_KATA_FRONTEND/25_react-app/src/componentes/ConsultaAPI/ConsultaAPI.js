@@ -17,6 +17,13 @@ export const ConsultaAPI = () => {
       .catch((err) => console.log(err));
   }, []);
 
+  const handlerRemove = (id) => {
+    const nuevosPersonajes = personajes.filter(
+      (personaje) => personaje.id !== id
+    );
+    setPersonajes(nuevosPersonajes);
+  };
+
   return (
     <div>
       {console.log(personajes)}
@@ -24,8 +31,8 @@ export const ConsultaAPI = () => {
       <div className="container">
         <div className="row">
           {personajes.map((personaje) => (
-            <div key={personaje.id} className="col-md-3">
-              <Card {...personaje} />
+            <div key={personaje.id} className="col-md-3 my-2">
+              <Card {...personaje} handlerRemove={handlerRemove} />
             </div>
           ))}
         </div>

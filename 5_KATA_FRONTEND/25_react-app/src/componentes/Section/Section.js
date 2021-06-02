@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./style.css";
-import { Card } from "../Card/Card";
+import { CardSection } from "../CardSection/CardSection";
 import { listaDeEstudiantes } from "../../data/listaDeEstudiantes";
 
 export const Section = () => {
@@ -23,7 +23,7 @@ export const Section = () => {
       <h2>Estudiantes destacados DEVF</h2>
       <div className="contenedor">
         {listaAlumnos.map((card, index) => (
-          <Card key={index} {...card} handlerRemove={handlerRemove} />
+          <CardSection key={index} {...card} handlerRemove={handlerRemove} />
         ))}
       </div>
     </div>

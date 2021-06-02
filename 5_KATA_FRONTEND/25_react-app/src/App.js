@@ -1,5 +1,5 @@
 import "./App.css";
-// import { Section } from "./componentes/Section/Section";
+//import { Section } from "./componentes/Section/Section";
 // import { Contador } from "./componentes/Contador/Contador";
 //import { Efecto } from "./componentes/Efecto/Efecto";
 import { ConsultaAPI } from "./componentes/ConsultaAPI/ConsultaAPI";
