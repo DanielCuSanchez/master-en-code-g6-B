@@ -1,16 +1,23 @@
 import "./style.css";
-import React from "react";
+import React, { useState } from "react";
 
 export const Card = (props) => {
-  console.log("PROPS", props);
+  //console.log("PROPS", props);
+  const [color, setColor] = useState("blue-card");
 
+  const handlerColor = () => {
+    setColor("red-card");
+  };
   return (
-    <div className="card">
+    <div className={`card ${color}`}>
       <div className="card-header">
-        {props.nombre}
+        {props.name}
+        <button onClick={handlerColor} className="btn btn-primary">
+          C
+        </button>
         <button
           onClick={() => {
-            props.handlerRemove(props.nombre);
+            props.handlerRemove(props.name);
           }}
           className="btn btn-danger"
         >
@@ -18,10 +25,10 @@ export const Card = (props) => {
         </button>
       </div>
       <div className="card-body">
-        <img className="card-img" src={props.img} alt="" />
+        <img className="card-img" src={props.image} alt="" />
       </div>
       <div className="card-footer">
-        <p>{props.edad}</p>
+        <p>{props.gender}</p>
       </div>
     </div>
   );

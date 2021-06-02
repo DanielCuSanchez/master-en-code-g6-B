@@ -1,7 +1,5 @@
 .card {
-  height: 300px;
-  width: 200px;
-  border: 2px solid purple;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -20,4 +18,11 @@
 }
 .card-img {
   width: 100%;
+}
+
+.blue-card {
+  border: 2px solid blue;
+}
+.red-card {
+  border: 2px solid red;
 }
