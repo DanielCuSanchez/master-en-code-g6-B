@@ -3,13 +3,13 @@ import React, { useState } from "react";
 
 export const Card = (props) => {
   //console.log("PROPS", props);
-  const [color, setColor] = useState("blue-card");
+  const [color, setColor] = useState(true);
 
   const handlerColor = () => {
-    setColor("red-card");
+    setColor(!color);
   };
   return (
-    <div className={`card ${color}`}>
+    <div className={`card ${color ? "blue-card" : "red-card"}`}>
       <div className="card-header">
         {props.name}
         <button onClick={handlerColor} className="btn btn-primary">
