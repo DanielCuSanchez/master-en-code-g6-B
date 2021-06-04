@@ -1,7 +1,9 @@
 import "./style.css";
 import React, { useState } from "react";
+import PropTypes from 'prop-types';
+import defaultImg from './super.png';
 
-export const Card = (props) => {
+export const Card = ({name: nombre, id, handlerRemove, image, gender}) => {
   //console.log("PROPS", props);
   const [color, setColor] = useState(true);
 
@@ -11,13 +13,13 @@ export const Card = (props) => {
   return (
     <div className={`card ${color ? "blue-card" : "red-card"}`}>
       <div className="card-header">
-        {props.name}
+        {nombre}
         <button onClick={handlerColor} className="btn btn-primary">
           C
         </button>
         <button
           onClick={() => {
-            props.handlerRemove(props.id);
+            handlerRemove(id);
           }}
           className="btn btn-danger"
         >
@@ -25,11 +27,26 @@ export const Card = (props) => {
         </button>
       </div>
       <div className="card-body">
-        <img className="card-img" src={props.image} alt="" />
+        <img className="card-img" src={image} alt="" />
       </div>
       <div className="card-footer">
-        <p>{props.gender}</p>
+        <p>{gender}</p>
       </div>
     </div>
   );
 };
+
+Card.propTypes = {
+  name: PropTypes.string.isRequired, 
+  id: PropTypes.number.isRequired,
+  handlerRemove: PropTypes.func, 
+  image: PropTypes.string, 
+  gender:  PropTypes.string,
+}
+
+Card.defaultProps = {
+  name: 'Personaje',
+  handlerRemove: ()=>{},
+  image: defaultImg,
+  gender: 'NA'
+}

@@ -42,20 +42,17 @@ export const ConsultaAPI = () => {
     setPersonajesFiltrados(personajes);
   };
 
-  const titleStyles = personajes.length > 0  ? {marginTop: '32px', color: 'red'} : {}
-
   return (
     <div>
       {console.log(personajes)}
-      <h2 style={titleStyles} >Consulta a la API de rick and morty </h2>
       <div className="container">
         {personajes.length === 0 ? (
           <div className="row justify-content-center">
             <div className="col">
-              <div class="d-flex align-items-center">
+              <div className="d-flex align-items-center">
                 <strong>Loading...</strong>
                 <div
-                  class="spinner-border ms-auto"
+                  className="spinner-border ms-auto"
                   role="status"
                   aria-hidden="true"
                 ></div>

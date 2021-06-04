@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import TodoItem from "../TodoItem/TodoItem";
 import "./TodoList.css";
 
 class TodoList extends Component {
@@ -86,15 +87,7 @@ class TodoList extends Component {
 
         <ul className="list">
           {this.state.items.map((item, i) => (
-            <li className="list-item" key={i}>
-              <input
-                type="checkbox"
-                id={item.id}
-                checked={item.checked}
-                onChange={this.toggleCheckbox}
-              />
-              {item.value}
-            </li>
+            <TodoItem key={i} {...item} onToggleCheckbox={this.toggleCheckbox} />
           ))}
         </ul>
       </div>
