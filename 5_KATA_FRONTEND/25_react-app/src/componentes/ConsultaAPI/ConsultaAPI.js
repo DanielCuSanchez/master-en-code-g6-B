@@ -1,4 +1,4 @@
-import React, { Fragment , useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { Card } from "./../Card/Card";
 
 export const ConsultaAPI = () => {
@@ -14,16 +14,33 @@ export const ConsultaAPI = () => {
       })
       .then((data) => {
         setPersonajes(data.results);
-        setPersonajesFiltrados(data.results);
+        const personajesListosconLaKey = colocarKey(data.results);
+        setPersonajesFiltrados(personajesListosconLaKey);
       })
       .catch((err) => console.log(err));
   }, []);
+
+  const colocarKey = (arregloPersonajes) => {
+    const personajesConLaKey = arregloPersonajes.map((personaje) => {
+      const colorCarta = false;
+      return {
+        ...personaje,
+        colorCarta,
+      };
+    });
+    return personajesConLaKey;
+  };
+
+  const cambiarColorCarta = (id) => {
+    //Cambiar color carta
+    console.log(id);
+  };
 
   const handlerRemove = (id) => {
     const nuevosPersonajes = personajes.filter(
       (personaje) => personaje.id !== id
     );
-    setPersonajes(nuevosPersonajes);
+    setPersonajesFiltrados(nuevosPersonajes);
   };
 
   const filterRick = () => {
@@ -44,7 +61,8 @@ export const ConsultaAPI = () => {
 
   return (
     <div>
-      {console.log(personajes)}
+      {/* {console.log(personajes)}
+      {console.log(personajesFiltrados)} */}
       <div className="container">
         {personajes.length === 0 ? (
           <div className="row justify-content-center">
@@ -60,7 +78,7 @@ export const ConsultaAPI = () => {
             </div>
           </div>
         ) : (
-          <Fragment>
+          <>
             <button className="btn btn-primary" onClick={handlerTodos}>
               Todos
             </button>
@@ -73,11 +91,15 @@ export const ConsultaAPI = () => {
             <div className="row">
               {personajesFiltrados.map((personaje) => (
                 <div key={personaje.id} className="col-md-3 my-2">
-                  <Card {...personaje} handlerRemove={handlerRemove} />
+                  <Card
+                    {...personaje}
+                    handlerRemove={handlerRemove}
+                    cambiarColorCarta={cambiarColorCarta}
+                  />
                 </div>
               ))}
             </div>
-          </Fragment>
+          </>
         )}
       </div>
     </div>

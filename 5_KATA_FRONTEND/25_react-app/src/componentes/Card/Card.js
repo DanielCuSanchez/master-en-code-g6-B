@@ -1,21 +1,36 @@
 import "./style.css";
 import React, { useState } from "react";
-import PropTypes from 'prop-types';
-import defaultImg from './super.png';
+import PropTypes from "prop-types";
+import defaultImg from "./super.png";
 
-export const Card = ({name: nombre, id, handlerRemove, image, gender}) => {
-  //console.log("PROPS", props);
-  const [color, setColor] = useState(true);
+export const Card = (props) => {
+  const {
+    name: nombre,
+    id,
+    handlerRemove,
+    image,
+    gender,
+    colorCarta,
+    cambiarColorCarta,
+  } = props;
+
+  console.log("PROPS", props);
+  const [color, setColor] = useState(false);
 
   const handlerColor = () => {
     setColor(!color);
   };
+
   return (
-    <div className={`card ${color ? "blue-card" : "red-card"}`}>
+    <div className={`card ${colorCarta ? "red-card" : "blue-card"}`}>
+      {/* {console.log("SOY la carta", nombre, "RENDER")} */}
       <div className="card-header">
         {nombre}
-        <button onClick={handlerColor} className="btn btn-primary">
-          C
+        <button
+          onClick={() => cambiarColorCarta(id)}
+          className="btn btn-primary"
+        >
+          Cambiar
         </button>
         <button
           onClick={() => {
@@ -37,16 +52,16 @@ export const Card = ({name: nombre, id, handlerRemove, image, gender}) => {
 };
 
 Card.propTypes = {
-  name: PropTypes.string.isRequired, 
+  name: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
-  handlerRemove: PropTypes.func, 
-  image: PropTypes.string, 
-  gender:  PropTypes.string,
-}
+  handlerRemove: PropTypes.func,
+  image: PropTypes.string,
+  gender: PropTypes.string,
+};
 
 Card.defaultProps = {
-  name: 'Personaje',
-  handlerRemove: ()=>{},
+  name: "Personaje",
+  handlerRemove: () => {},
   image: defaultImg,
-  gender: 'NA'
-}
+  gender: "NA",
+};
