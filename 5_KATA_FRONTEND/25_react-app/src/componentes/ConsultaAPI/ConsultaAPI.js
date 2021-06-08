@@ -13,8 +13,8 @@ export const ConsultaAPI = () => {
         return data;
       })
       .then((data) => {
-        setPersonajes(data.results);
         const personajesListosconLaKey = colocarKey(data.results);
+        setPersonajes(personajesListosconLaKey);
         setPersonajesFiltrados(personajesListosconLaKey);
       })
       .catch((err) => console.log(err));
@@ -33,11 +33,17 @@ export const ConsultaAPI = () => {
 
   const cambiarColorCarta = (id) => {
     //Cambiar color carta
-    console.log(id);
+    const nuevosPersonajes = personajes.map((personaje) =>
+      personaje.id === id
+        ? { ...personaje, colorCarta: !personaje.colorCarta }
+        : { ...personaje }
+    );
+    setPersonajes(nuevosPersonajes);
+    setPersonajesFiltrados(nuevosPersonajes);
   };
 
   const handlerRemove = (id) => {
-    const nuevosPersonajes = personajes.filter(
+    const nuevosPersonajes = personajesFiltrados.filter(
       (personaje) => personaje.id !== id
     );
     setPersonajesFiltrados(nuevosPersonajes);
