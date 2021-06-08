@@ -14,12 +14,12 @@ export const Card = (props) => {
     cambiarColorCarta,
   } = props;
 
-  console.log("PROPS", props);
-  const [color, setColor] = useState(false);
+  // console.log("PROPS", props);
+  // const [color, setColor] = useState(false);
 
-  const handlerColor = () => {
-    setColor(!color);
-  };
+  // const handlerColor = () => {
+  //   setColor(!color);
+  // };
 
   return (
     <div className={`card ${colorCarta ? "red-card" : "blue-card"}`}>

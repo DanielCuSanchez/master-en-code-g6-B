@@ -13,7 +13,9 @@ export const ConsultaAPI = () => {
         return data;
       })
       .then((data) => {
+        //Añado la key
         const personajesListosconLaKey = colocarKey(data.results);
+        //Inicializar estado base para ambos
         setPersonajes(personajesListosconLaKey);
         setPersonajesFiltrados(personajesListosconLaKey);
       })
@@ -34,10 +36,11 @@ export const ConsultaAPI = () => {
   const cambiarColorCarta = (id) => {
     //Cambiar color carta
     const nuevosPersonajes = personajes.map((personaje) =>
-      personaje.id === id
+      personaje.id === id //compara en el arreglo actual la info de la KEY
         ? { ...personaje, colorCarta: !personaje.colorCarta }
         : { ...personaje }
     );
+    //Actualiza ambos estados
     setPersonajes(nuevosPersonajes);
     setPersonajesFiltrados(nuevosPersonajes);
   };
