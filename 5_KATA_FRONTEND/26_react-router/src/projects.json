@@ -1,0 +1,17 @@
+[
+  {
+    "id": 0,
+    "name": "Vision Analytics",
+    "description": "Computer vision project"
+  },
+  {
+    "id": 1,
+    "name": "Todo List",
+    "description": "Super aplicacion que te ayuda a organizar tus pendientes"
+  },
+  {
+    "id": 2,
+    "name": "Pokedex",
+    "description": "Web app que emula un pokedex bien chingón y cute uwu :3"
+  }
+]

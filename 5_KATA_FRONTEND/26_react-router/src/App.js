@@ -4,6 +4,7 @@ import { About } from './pages/About';
 import { Portfolio } from './pages/Portfolio';
 import { NavBar } from './components/NavBar';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import { ProjectPage } from './pages/ProjectPage';
 
 function App() {
 
@@ -19,6 +20,9 @@ function App() {
           </Route>
           <Route path="/portfolio">
             <Portfolio/>
+          </Route>
+          <Route path="/project/:id">
+            <ProjectPage/>
           </Route>
           <Route exact path="/">
             <Home/>
