@@ -1,11 +1,7 @@
 import { useState } from "react";
 
-export const useForm = () => {
-  const [form, setForm] = useState({
-    email: "",
-    password: "",
-    check: false,
-  });
+export const useForm = (valores = {}) => {
+  const [form, setForm] = useState(valores);
 
   const handlerOnChange = (evento) => {
     const nuevoEstado = {

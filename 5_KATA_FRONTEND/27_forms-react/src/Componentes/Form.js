@@ -2,7 +2,11 @@ import React from "react";
 import { useForm } from "./../Hooks/useForm";
 
 export const Form = () => {
-  const { form, handlerOnChange } = useForm();
+  const { form, handlerOnChange } = useForm({
+    email: "",
+    password: "",
+    check: false,
+  });
   return (
     <div className="container mt-4">
       {console.log(form)}
