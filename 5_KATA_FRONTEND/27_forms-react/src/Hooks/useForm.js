@@ -16,9 +16,11 @@ export const useForm = () => {
 
     setForm(nuevoEstado);
 
+    // const saludo = "hola";
     // const objeto = {
     //   nombre: "Juan",
-    //   edad:22
+    //   edad: 22,
+    //   [saludo]: "Hey",
     // };
   };
 
