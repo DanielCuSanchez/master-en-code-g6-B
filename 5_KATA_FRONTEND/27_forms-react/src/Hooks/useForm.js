@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from "react"; 
 
 export const useForm = (valores = {}) => {
   const [form, setForm] = useState(valores);
@@ -7,17 +7,11 @@ export const useForm = (valores = {}) => {
     const nuevoEstado = {
       ...form,
       [evento.target.name]:
-        evento.target.name === "check" ? !form.check : evento.target.value,
+        evento.target.type === "checkbox"
+          ? evento.target.checked
+          : evento.target.value,
     };
-
     setForm(nuevoEstado);
-
-    // const saludo = "hola";
-    // const objeto = {
-    //   nombre: "Juan",
-    //   edad: 22,
-    //   [saludo]: "Hey",
-    // };
   };
 
   return {
