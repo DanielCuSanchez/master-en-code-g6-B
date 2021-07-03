@@ -7,12 +7,18 @@ export const Form = () => {
     password: "",
     check: false,
   });
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    console.log(form);
+  };
   return (
-    <div className="container mt-4">
+    <div className="container mt-4 p-4 border border-primary">
       {console.log("ME RENDERIZO")}
       <div className="row justify-content-center">
         <div className="col-md-6">
-          <form>
+          <h1 className="text-center">Form manual</h1>
+          <form onSubmit={onSubmit}>
             <div className="mb-3">
               <label className="form-label">Email</label>
               <input
