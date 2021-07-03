@@ -1,0 +1,18 @@
+{
+  "preguntas": [
+    {
+      "id": 1,
+      "name": "pregunta1",
+      "titulo": "Elige un color",
+      "opciones": ["azul", "rojo", "morado"],
+      "respuesta": "azul"
+    },
+    {
+      "id": 2,
+      "name": "pregunta2",
+      "titulo": "Elige un carro",
+      "opciones": ["mazda", "bmw", "toyota"],
+      "respuesta": "mazda"
+    }
+  ]
+}

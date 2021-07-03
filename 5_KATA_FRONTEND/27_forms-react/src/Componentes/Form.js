@@ -9,7 +9,7 @@ export const Form = () => {
   });
   return (
     <div className="container mt-4">
-      {console.log(form)}
+      {console.log("ME RENDERIZO")}
       <div className="row justify-content-center">
         <div className="col-md-6">
           <form>
