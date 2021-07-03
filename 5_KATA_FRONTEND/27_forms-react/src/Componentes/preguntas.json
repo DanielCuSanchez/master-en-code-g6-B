@@ -13,6 +13,13 @@
       "titulo": "Elige un carro",
       "opciones": ["mazda", "bmw", "toyota"],
       "respuesta": "mazda"
+    },
+    {
+      "id": 3,
+      "name": "pregunta3",
+      "titulo": "Elige un lugar",
+      "opciones": ["oax", "dinamarca", "qro"],
+      "respuesta": "oax"
     }
   ]
 }
