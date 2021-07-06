@@ -1,10 +1,12 @@
 import './App.css';
-import { Pokemon } from './components/Pokemon';
+import { GuardaFrase } from './components/GuardaFrase';
 
 function App() {
   return (
     <div className="App">
-      <Pokemon name="pikachu"/>
+      {/* <Pokemon name="pikachu"/> */}
+      <GuardaFrase clave="frase" />
+      <GuardaFrase clave="frase3" />
     </div>
   );
 }
