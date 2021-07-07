@@ -1,5 +1,6 @@
-import { HigherOrderComponent } from "./Componentes/HigherOrderComponent";
-import { TonyStark } from "./Componentes/TonyStark";
+//import { HigherOrderComponent } from "./Componentes/HigherOrderComponent";
+//import { TonyStark } from "./Componentes/TonyStark";
+import { Nivel1 } from "./Componentes/Nivel1";
 
 function App() {
   //const IroMan = HigherOrderComponent(<TonyStark />);
@@ -7,9 +8,10 @@ function App() {
 
   return (
     <div>
-      <TonyStark />
+      {/* <TonyStark />
+      {HigherOrderComponent(TonyStark)} */}
 
-      {HigherOrderComponent(TonyStark)}
+      <Nivel1 />
     </div>
   );
 }
