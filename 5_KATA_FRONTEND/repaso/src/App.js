@@ -1,12 +1,31 @@
 import './App.css';
-import { GuardaFrase } from './components/GuardaFrase';
+import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import { PrivateRoute } from './components/PrivateRoute';
+import { Login } from './pages/Login';
+import { Signup } from './pages/Signup';
+import { Edit } from './pages/Edit';
+import { Admin } from './pages/Admin';
+import { Posts } from './pages/Posts';
 
 function App() {
   return (
     <div className="App">
-      {/* <Pokemon name="pikachu"/> */}
-      <GuardaFrase clave="frase" />
-      <GuardaFrase clave="frase3" />
+      <Router>
+        <Switch>
+          <Route path="/" exact component={Login} />
+          <Route path="/login">
+            <Login/>
+          </Route>
+          <Route path="/signup">
+            <Signup/>
+          </Route>
+          <PrivateRoute path="/posts">
+            <Posts/>
+          </PrivateRoute>
+          {/* <PrivateRoute path="/edit" component={Edit} />
+          <PrivateRoute path="/admin" component={Admin} /> */}
+        </Switch>
+      </Router>
     </div>
   );
 }
