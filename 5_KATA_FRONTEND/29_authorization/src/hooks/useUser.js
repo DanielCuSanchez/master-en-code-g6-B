@@ -11,19 +11,20 @@ export const useUser = () => {
   useEffect(() => {
     const token = localStorage.getItem('token')
     setIsLogged(!!token)
-
-    getProfile()
-      .then(({user})=> {
-        if(user){
-          setUser(user)
-          console.log(user)
-        }else{
+    if(token){
+      getProfile()
+        .then(({user})=> {
+          if(user){
+            setUser(user)
+            console.log(user)
+          }else{
+            setIsLogged(false)
+          }
+        }).catch(error=>{
+          console.error(error)
           setIsLogged(false)
-        }
-      }).catch(error=>{
-        console.error(error)
-        setIsLogged(false)
-      })
+        })
+    }
   }, [])
 
   return [isLogged, setIsLogged, user];
