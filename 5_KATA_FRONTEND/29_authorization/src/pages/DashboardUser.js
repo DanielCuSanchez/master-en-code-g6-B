@@ -1,9 +1,9 @@
 import React from 'react'
 
-export const Admin = () => {
+export const DashboardUser = () => {
   return (
     <div className="container">
-      <h1>Admin</h1>
+      <h1>DashboardUser</h1>
     </div>
   )
 }

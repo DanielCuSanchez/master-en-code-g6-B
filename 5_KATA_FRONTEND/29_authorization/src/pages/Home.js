@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 export const Home = () => {
   return (
@@ -10,5 +10,5 @@ export const Home = () => {
         <li>Producto 3</li>
       </ul>
     </div>
-  )
-}
+  );
+};

@@ -1,15 +1,21 @@
-import { Route, Redirect } from 'react-router-dom'
-import { useUser } from '../hooks/useUser';
+import { Route, Redirect } from "react-router-dom";
+import { useUser } from "../hooks/useUser";
+
+import { useUserContext } from "./../context/userContext";
 
 // A wrapper for <Route> that redirects to the login
 // screen if you're not yet authenticated.
-export const PrivateRoute = ({ children, ...rest }) => {
-  let [isLogged] = useUser();
+export const PrivateRoute = (props) => {
+  const context = useUserContext();
+  console.log("CONTEXT", context);
+
+  const { children, ...rest } = props;
+  // let [isLogged] = useUser();
   return (
     <Route
       {...rest}
       render={({ location }) =>
-        isLogged ? (
+        context.isLogged ? (
           children
         ) : (
           <Redirect
@@ -22,4 +28,4 @@ export const PrivateRoute = ({ children, ...rest }) => {
       }
     />
   );
-}
+};
