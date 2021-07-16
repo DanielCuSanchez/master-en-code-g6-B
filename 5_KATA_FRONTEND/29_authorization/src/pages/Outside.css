@@ -1,68 +1,53 @@
 body {
   font-family: "Lato", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+.container-section {
+  width: 100%;
 }
 
-.main-head {
-  height: 150px;
-  background: #FFF;
+.top-section {
+  height: 100px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #009ee3;
+}
+.logo {
+  width: 200px;
+}
+.login-form {
+  margin-top: 50px;
+  text-align: left;
 }
 
-.sidenav {
-  height: 100%;
-  background-color: #000;
-  overflow-x: hidden;
-  padding-top: 20px;
+form {
+  position: relative;
 }
-
-.main {
-  padding: 0px 50px;
+.error {
+  position: absolute;
+  top: -30px;
+  left: 30%;
+  color: red;
 }
-
-@media screen and (max-height: 450px) {
-  .sidenav {
-    padding-top: 15px;
-  }
+.form-options {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 80px;
 }
-
-@media screen and (max-width: 450px) {
-  .login-form {
-    margin-top: 10%;
-  }
-  .register-form {
-    margin-top: 10%;
-  }
+.btn-app-primary {
+  background: #009ee3;
+  border: 2px solid transparent;
 }
-
-@media screen and (min-width: 768px) {
-  .main {
-    margin-left: 40%;
-  }
-  .sidenav {
-    width: 40%;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-  }
-  .login-form {
-    margin-top: 80%;
-  }
-  .register-form {
-    margin-top: 20%;
-  }
+.btn-app-primary:hover {
+  background: #036792;
+  border: 2px solid #036792;
 }
-
-.login-main-text {
-  margin-top: 20%;
-  padding: 60px;
-  color: #fff;
-}
-
-.login-main-text h2 {
-  font-weight: 300;
-}
-
-.btn-black {
-  background-color: #000 !important;
-  color: #fff;
+.outline-app-primary {
+  border: 2px solid #009ee3;
 }
