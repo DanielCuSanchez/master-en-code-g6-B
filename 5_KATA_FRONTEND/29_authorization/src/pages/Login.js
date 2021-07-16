@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link, Redirect } from "react-router-dom";
-import { useUser } from "../hooks/useUser";
+//import { useUser } from "../hooks/useUser";
 import { login } from "../services/auth.service";
 import "./Outside.css";
 import { useUserContext } from "./../context/userContext";
@@ -54,7 +54,7 @@ export const Login = () => {
 
   return (
     <div className="container-section">
-      <div class="top-section">
+      <div className="top-section">
         <img className="logo" src="devf.png" alt="logo" />
       </div>
       <div className="container">
@@ -86,7 +86,7 @@ export const Login = () => {
                     placeholder="Password"
                   />
                 </div>
-                <div class="form-options">
+                <div className="form-options">
                   <button
                     type="submit"
                     disabled={isLoading}

@@ -20,7 +20,8 @@ export const signUp = ({
   birth_date,
   gender,
   email,
-  password
+  password,
+  role,
 }) => {
   return axios
     .post(BASE_URL + "/signup", {
@@ -29,9 +30,11 @@ export const signUp = ({
       birth_date,
       gender,
       email,
-      password
+      password,
     })
     .then((resp) => {
       console.log({ resp });
-    });
+      return resp.data;
+    })
+    .catch((e) => console.log(e));
 };

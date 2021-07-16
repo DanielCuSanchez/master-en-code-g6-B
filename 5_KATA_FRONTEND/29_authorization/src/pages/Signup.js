@@ -1,21 +1,61 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, Redirect } from "react-router-dom";
 import "./Outside.css";
 import { useUserContext } from "./../context/userContext";
+import { signUp } from "../services/auth.service";
 
 export const Signup = () => {
+  const [form, setForm] = useState({
+    first_name: "",
+    last_name: "",
+    birth_date: "",
+    gender: "",
+    email: "",
+    password: "",
+    role: "CUSTOMER",
+  });
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(false);
+
   const context = useUserContext();
   if (context.isLogged) {
     return <Redirect to="/home" />;
   }
 
+  const onChangeInput = (ev) => {
+    const newForm = { ...form };
+    newForm[ev.target.name] = ev.target.value;
+    setForm({ ...form, ...newForm });
+  };
+
   const handlerSubmit = (ev) => {
     ev.preventDefault();
+
+    const dataToSend = {
+      first_name: form.first_name,
+      last_name: form.last_name,
+      birth_date: form.birth_date,
+      gender: form.gender,
+      email: form.email,
+      password: form.password,
+      role: form.role,
+    };
+    setIsLoading(true);
+    signUp(dataToSend).then((resp) => {
+      setIsLoading(false);
+      if (!resp) {
+        setError(true);
+        setTimeout(() => {
+          setError(false);
+        }, 2000);
+      }
+    });
   };
   return (
     <>
+      {console.log(form)}
       <div className="container-section">
-        <div class="top-section">
+        <div className="top-section">
           <img className="logo" src="devf.png" alt="logo" />
         </div>
         <div className="container">
@@ -24,36 +64,85 @@ export const Signup = () => {
               <div className="login-form">
                 <h3>Crear cuenta</h3>
                 <form onSubmit={handlerSubmit}>
+                  {error && <div className="error">Verifica los datos</div>}
                   <div className="form-group">
                     <label>Nombre</label>
-                    <input type="text" className="form-control" />
+                    <input
+                      required
+                      type="text"
+                      className="form-control"
+                      onChange={onChangeInput}
+                      value={form.first_name}
+                      name="first_name"
+                    />
                   </div>
                   <div className="form-group">
                     <label>Apellido</label>
-                    <input type="text" className="form-control" />
+                    <input
+                      required
+                      type="text"
+                      className="form-control"
+                      onChange={onChangeInput}
+                      value={form.last_name}
+                      name="last_name"
+                    />
                   </div>
                   <div className="form-group">
                     <label>Email</label>
-                    <input type="email" className="form-control" />
+                    <input
+                      type="email"
+                      className="form-control"
+                      onChange={onChangeInput}
+                      value={form.email}
+                      name="email"
+                    />
                   </div>
-                  <div className="form-group">
+                  <div
+                    required
+                    onChange={onChangeInput}
+                    value={form.birth_date}
+                    className="form-group"
+                    name="birth_date"
+                  >
                     <label>Fecha de nacimiento</label>
-                    <input type="date" className="form-control" />
+                    <input
+                      type="date"
+                      className="form-control"
+                      onChange={onChangeInput}
+                      name="date"
+                    />
                   </div>
                   <div className="form-group">
                     <label>Género</label>
-                    <select type="select" className="form-select form-control">
+                    <select
+                      required
+                      onChange={onChangeInput}
+                      name="gender"
+                      type="select"
+                      className="form-select form-control"
+                    >
+                      <option>Selecciona</option>
                       <option value="M">Masculino</option>
                       <option value="F">Femenino</option>
                     </select>
                   </div>
                   <div className="form-group">
                     <label>Password</label>
-                    <input type="password" className="form-control" />
+                    <input
+                      type="password"
+                      required
+                      className="form-control"
+                      onChange={onChangeInput}
+                      value={form.password}
+                      name="password"
+                    />
                   </div>
-                  <div class="d-grid ">
-                    <button className="btn btn-app-primary btn-primary mt-3 ">
-                      Registrarse
+                  <div className="d-grid ">
+                    <button
+                      className="btn btn-app-primary btn-primary mt-3 "
+                      disabled={isLoading}
+                    >
+                      {isLoading ? "Espere" : "Registrarse"}
                     </button>
                     <Link
                       to="/login"
