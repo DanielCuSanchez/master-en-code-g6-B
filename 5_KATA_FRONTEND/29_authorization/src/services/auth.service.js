@@ -31,9 +31,9 @@ export const signUp = ({
       gender,
       email,
       password,
+      role,
     })
     .then((resp) => {
-      console.log({ resp });
       return resp.data;
     })
     .catch((e) => console.log(e));

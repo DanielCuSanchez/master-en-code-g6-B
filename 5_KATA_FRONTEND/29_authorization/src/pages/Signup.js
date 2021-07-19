@@ -15,6 +15,7 @@ export const Signup = () => {
     role: "CUSTOMER",
   });
   const [isLoading, setIsLoading] = useState(false);
+  const [isRegistered, setIsRegistered] = useState(false);
   const [error, setError] = useState(false);
 
   const context = useUserContext();
@@ -22,6 +23,9 @@ export const Signup = () => {
     return <Redirect to="/home" />;
   }
 
+  if (isRegistered) {
+    return <Redirect to="/login" />;
+  }
   const onChangeInput = (ev) => {
     const newForm = { ...form };
     newForm[ev.target.name] = ev.target.value;
@@ -49,8 +53,10 @@ export const Signup = () => {
           setError(false);
         }, 2000);
       }
+      setIsRegistered(true);
     });
   };
+
   return (
     <>
       {console.log(form)}
@@ -97,19 +103,14 @@ export const Signup = () => {
                       name="email"
                     />
                   </div>
-                  <div
-                    required
-                    onChange={onChangeInput}
-                    value={form.birth_date}
-                    className="form-group"
-                    name="birth_date"
-                  >
+                  <div required className="form-group">
                     <label>Fecha de nacimiento</label>
                     <input
                       type="date"
                       className="form-control"
                       onChange={onChangeInput}
-                      name="date"
+                      value={form.birth_date}
+                      name="birth_date"
                     />
                   </div>
                   <div className="form-group">

@@ -30,8 +30,10 @@ form {
 .error {
   position: absolute;
   top: -30px;
-  left: 30%;
+  left: 0;
+  width: 100%;
   color: red;
+  text-align: right;
 }
 .form-options {
   margin-top: 20px;
