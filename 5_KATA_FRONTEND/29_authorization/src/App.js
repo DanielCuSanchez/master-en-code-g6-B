@@ -6,12 +6,15 @@ import { Signup } from './pages/Signup';
 import { DashboardUser } from './pages/DashboardUser';
 import { Home } from './pages/Home';
 import React from 'react';
+import { Product } from './pages/Product';
+import { NavBar } from './components/NavBar';
 
 
 function App() {
   return (
     <div className="App">
       <Router>
+        <NavBar/>
         <Switch>
           <Route path="/" exact component={Login} />
           <Route path="/login" component={Login}  />
@@ -25,7 +28,7 @@ function App() {
             <DashboardUser />
           </PrivateRoute>
 
-
+          <Route path="/product/:idProduct" component={Product} />
 
           <Redirect to="/login"/>
         </Switch>
