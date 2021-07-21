@@ -23,9 +23,9 @@ export const NavBar = () => {
           </div>
           <div className="col-12 col-md-6">
             <div className="nav-options">
-              <div className="nav-cart">
+              <Link to="/cart" className="nav-cart">
                 <MdShoppingCart /> <span>{cart.length}</span>
-              </div>
+              </Link>
               <Link to="/settings-account" className="nav-account dropdown">
                 Mi Cuenta
                 <span

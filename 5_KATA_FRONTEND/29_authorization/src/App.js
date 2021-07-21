@@ -16,6 +16,7 @@ import { NavBar } from "./components/NavBar/index";
 
 import "./pages/Outside.css";
 import "./pages/Inside.css";
+import { Cart } from "./pages/Cart";
 
 function App() {
   const { isLogged } = useUserContext();
@@ -35,6 +36,10 @@ function App() {
 
           <PrivateRoute path="/settings-account">
             <DashboardUser />
+          </PrivateRoute>
+
+          <PrivateRoute path="/cart">
+            <Cart />
           </PrivateRoute>
 
           <Route path="/product/:idProduct" component={Product} />

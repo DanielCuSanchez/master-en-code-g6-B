@@ -23,6 +23,8 @@ nav {
 
 .nav-cart {
   cursor: pointer;
+  text-decoration: none;
+  color: #fefefe;
   display: flex;
   text-align: center;
   align-items: center;
