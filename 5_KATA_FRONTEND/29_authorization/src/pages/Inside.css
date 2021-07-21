@@ -28,5 +28,12 @@
 }
 
 .cart-section {
-  margin-top: 200px;
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+  width: 100%;
+}
+.cart-section button {
+  margin-top: 20px;
+  width: 300px;
 }

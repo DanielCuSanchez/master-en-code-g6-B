@@ -2,7 +2,7 @@ import React from "react";
 import { useUserContext } from "./../context/userContext";
 
 export const Cart = () => {
-  const { handleAddToCart, cart } = useUserContext();
+  const { cart } = useUserContext();
 
   const cartTotal = () => {
     let total = 0;
@@ -24,37 +24,46 @@ export const Cart = () => {
               Lista de articulos
             </h6>
           </div>
+          <div className="row">
+            <div className="col-md-4">
+              <h6 className="card-title">Articulo</h6>
+            </div>
+            <div className="col-md-4">Cantidad</div>
+            <div className="col-md-4"> Precio unitario</div>
+          </div>
           {cart.length === 0
             ? "Carrito vacio"
-            : cart.map((product) => (
-                <div class="card">
-                  <div class="row">
-                    <div class="col-md-4">
-                      <h6 class="card-title">{product.product_name}</h6>
+            : cart.map((product, key) => (
+                <div key={product._id} className="card">
+                  <div className="row">
+                    <div className="col-md-4">
+                      <h6 className="card-title">
+                        ({key + 1}) {product.product_name}
+                      </h6>
                     </div>
-                    <div class="col-md-4">{product.quantity}</div>
-                    <div class="col-md-4"> $ {product.price}</div>
+                    <div className="col-md-4">{product.quantity}</div>
+                    <div className="col-md-4"> $ {product.price}</div>
                   </div>
                 </div>
               ))}
 
-          <div class="card">
-            <div class="container">
-              <div class="row">
-                <div class="col-md-4">
-                  <h4 class="card-title">Total</h4>
+          <div className="card">
+            <div className="container">
+              <div className="row">
+                <div className="col-md-4">
+                  <h4 className="card-title">Total</h4>
                 </div>
-                <div class="offset-md-4 col-md-4">$ {cartTotal()}</div>
+                <div className="offset-md-4 col-md-4">$ {cartTotal()}</div>
               </div>
             </div>
           </div>
-          <button
-            className="btn btn-primary btn-app-primary"
-            onClick={handlerContinueShop}
-          >
-            {cart.length === 0 ? "Añade articulos" : "Continuar con la compra"}
-          </button>
         </div>
+        <button
+          className="btn btn-primary btn-app-primary"
+          onClick={handlerContinueShop}
+        >
+          {cart.length === 0 ? "Añade articulos" : "Continuar con la compra"}
+        </button>
       </div>
     </div>
   );
