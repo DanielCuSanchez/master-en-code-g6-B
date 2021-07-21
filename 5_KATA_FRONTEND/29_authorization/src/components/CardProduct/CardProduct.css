@@ -1,0 +1,12 @@
+.card-product {
+  text-align: center;
+  margin: 2px;
+  min-height: 400px;
+  max-height: 400px;
+  border: 1px solid #009ee3;
+}
+.card-product img {
+  margin-top: 50px;
+  height: 150px;
+  object-fit: contain;
+}

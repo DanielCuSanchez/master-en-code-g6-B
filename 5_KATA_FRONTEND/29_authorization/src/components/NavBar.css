@@ -1,9 +1,0 @@
-.nav-link.active.logout:hover {
-  color: red;
-  cursor: pointer;
-}
-
-.nav-link.active:hover {
-  color: #0d6efd;
-  cursor: pointer;
-}

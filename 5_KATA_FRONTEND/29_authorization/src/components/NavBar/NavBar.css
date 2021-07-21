@@ -1,0 +1,47 @@
+nav {
+  background: #009ee3;
+  color: #fefefe;
+  position: fixed !important;
+  width: 100%;
+  top: 0;
+  z-index: 1;
+  font-size: 30px !important;
+}
+
+.navbar-brand {
+  width: 130px;
+}
+.nav-section {
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav-options {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-cart {
+  cursor: pointer;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px !important;
+}
+
+.nav-cart span {
+  margin-left: 15px;
+}
+
+.nav-account {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: #fefefe;
+}
+
+.nav-profile {
+  color: #fefefe;
+}

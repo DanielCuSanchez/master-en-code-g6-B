@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link, Redirect } from "react-router-dom";
-import "./Outside.css";
 import { useUserContext } from "./../context/userContext";
 import { signUp } from "../services/auth.service";
 
@@ -44,6 +43,7 @@ export const Signup = () => {
       password: form.password,
       role: form.role,
     };
+
     setIsLoading(true);
     signUp(dataToSend).then((resp) => {
       setIsLoading(false);
@@ -140,7 +140,7 @@ export const Signup = () => {
                   </div>
                   <div className="d-grid ">
                     <button
-                      className="btn btn-app-primary btn-primary mt-3 "
+                      className="btn btn-app-primary btn-primary mt-4 "
                       disabled={isLoading}
                     >
                       {isLoading ? "Espere" : "Registrarse"}

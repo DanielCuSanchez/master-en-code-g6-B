@@ -1,23 +1,32 @@
-import './App.css';
-import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
-import { PrivateRoute } from './components/PrivateRoute';
-import { Login } from './pages/Login';
-import { Signup } from './pages/Signup';
-import { DashboardUser } from './pages/DashboardUser';
-import { Home } from './pages/Home';
-import React from 'react';
-import { Product } from './pages/Product';
-import { NavBar } from './components/NavBar';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
+import { PrivateRoute } from "./components/PrivateRoute";
+import { Login } from "./pages/Login";
+import { Signup } from "./pages/Signup";
+import { DashboardUser } from "./pages/DashboardUser";
+import { Home } from "./pages/Home";
+import React from "react";
+import { Product } from "./pages/Product";
+import { useUserContext } from "./context/userContext";
+import { NavBar } from "./components/NavBar/index";
 
+import "./pages/Outside.css";
+import "./pages/Inside.css";
 
 function App() {
+  const { isLogged } = useUserContext();
   return (
     <div className="App">
       <Router>
-        <NavBar/>
+        {/* Renderiza NavBar si solo esta loggeado */}
+        {isLogged && <NavBar />}
         <Switch>
           <Route path="/" exact component={Login} />
-          <Route path="/login" component={Login}  />
+          <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
 
           <PrivateRoute path="/home">
@@ -30,7 +39,7 @@ function App() {
 
           <Route path="/product/:idProduct" component={Product} />
 
-          <Redirect to="/login"/>
+          <Redirect to="/login" />
         </Switch>
       </Router>
     </div>

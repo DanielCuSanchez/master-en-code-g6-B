@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, Redirect } from "react-router-dom";
 //import { useUser } from "../hooks/useUser";
 import { login } from "../services/auth.service";
-import "./Outside.css";
+
 import { useUserContext } from "./../context/userContext";
 
 export const Login = () => {
