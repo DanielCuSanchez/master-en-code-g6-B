@@ -7,7 +7,6 @@ import { useUserContext } from "./../context/userContext";
 // screen if you're not yet authenticated.
 export const PrivateRoute = (props) => {
   const context = useUserContext();
-  console.log("CONTEXT", context);
 
   const { children, ...rest } = props;
   // let [isLogged] = useUser();

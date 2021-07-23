@@ -11,7 +11,7 @@ export const login = ({ email, password }) => {
       }
       return resp.data;
     })
-    .catch((e) => console.log(e));
+    .catch((e) => console.error(e));
 };
 
 export const signUp = ({
@@ -36,5 +36,5 @@ export const signUp = ({
     .then((resp) => {
       return resp.data;
     })
-    .catch((e) => console.log(e));
+    .catch((e) => console.error(e));
 };

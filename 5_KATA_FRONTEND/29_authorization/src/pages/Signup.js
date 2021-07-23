@@ -59,7 +59,6 @@ export const Signup = () => {
 
   return (
     <>
-      {console.log(form)}
       <div className="container-section">
         <div className="top-section">
           <img className="logo" src="devf.png" alt="logo" />

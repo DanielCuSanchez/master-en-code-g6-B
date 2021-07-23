@@ -32,7 +32,6 @@ export const UserContextProvider = ({ children }) => {
           if (user) {
             setUser(user);
             setIsLogged(true);
-            console.log(user);
           }
         })
         .catch((error) => {
@@ -40,7 +39,6 @@ export const UserContextProvider = ({ children }) => {
           setIsLogged(false);
         });
     }
-    console.log("USE_EFFECT_TOKEN");
   }, [token]);
 
   const addToCart = useCallback((product) => {

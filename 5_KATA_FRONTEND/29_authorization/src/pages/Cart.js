@@ -38,7 +38,7 @@ export const Cart = () => {
                   <div className="row">
                     <div className="col-md-4">
                       <h6 className="card-title">
-                        ({key + 1}) {product.product_name}
+                        {product.product_name}
                       </h6>
                     </div>
                     <div className="col-md-4">{product.quantity}</div>

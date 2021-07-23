@@ -40,7 +40,6 @@ export const Login = () => {
     const newForm = { ...form };
     newForm[ev.target.name] = ev.target.value;
     setForm({ ...form, ...newForm });
-    console.log(form);
   };
 
   // if (isLogged) {
