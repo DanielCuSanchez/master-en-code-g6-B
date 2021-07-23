@@ -46,11 +46,14 @@ export const UserContextProvider = ({ children }) => {
   const addToCart = useCallback((product) => {
     let newCart = [...cart]
 
-    let productExist = newCart.find(prod=> prod._id === product._id)
-    if (productExist){
-      productExist.quantity ? productExist.quantity++ : productExist.quantity = 2;
+    let productExist = newCart.findIndex(prod=> prod._id === product._id)
+    if (productExist >= 0){
+      let quantity = newCart[productExist].quantity 
+      quantity >= 0
+        ? (newCart[productExist].quantity = quantity+1)
+        : (newCart[productExist] = {...productExist, quantity: 2});
     }else{
-      newCart.push(product)
+      newCart.push({...product, quantity: 1})
     }
 
     setCart(newCart)
@@ -61,9 +64,9 @@ export const UserContextProvider = ({ children }) => {
     let newCart = [...cart]
     let index = newCart.findIndex(prod=> prod._id === productId)
     if(index){
-      let product = newCart[index]
-      if(product.quantity && product.quantity > 1){
-        product.quantity--
+      let quantity = newCart[index].quantity
+      if(quantity && quantity > 1){
+        newCart[index] = { ...newCart[index], quantity: quantity-1}
       }else{
         newCart.splice(index, 1)
       }
