@@ -2,7 +2,9 @@ import React from "react";
 import { useUserContext } from "./../context/userContext";
 
 export const Cart = () => {
-  const { cart } = useUserContext();
+  const {
+    cartObject: { cart },
+  } = useUserContext();
 
   const cartTotal = () => {
     let total = 0;
@@ -37,9 +39,7 @@ export const Cart = () => {
                 <div key={product._id} className="card">
                   <div className="row">
                     <div className="col-md-4">
-                      <h6 className="card-title">
-                        {product.product_name}
-                      </h6>
+                      <h6 className="card-title">{product.product_name}</h6>
                     </div>
                     <div className="col-md-4">{product.quantity}</div>
                     <div className="col-md-4"> $ {product.price}</div>
@@ -61,6 +61,7 @@ export const Cart = () => {
         <button
           className="btn btn-primary btn-app-primary"
           onClick={handlerContinueShop}
+          disabled={cart.length === 0}
         >
           {cart.length === 0 ? "Añade articulos" : "Continuar con la compra"}
         </button>

@@ -6,7 +6,7 @@ import { useUserContext } from "./../context/userContext";
 // A wrapper for <Route> that redirects to the login
 // screen if you're not yet authenticated.
 export const PrivateRoute = (props) => {
-  const context = useUserContext();
+  const { isLogged } = useUserContext();
 
   const { children, ...rest } = props;
   // let [isLogged] = useUser();
@@ -14,7 +14,7 @@ export const PrivateRoute = (props) => {
     <Route
       {...rest}
       render={({ location }) =>
-        context.isLogged ? (
+        isLogged ? (
           children
         ) : (
           <Redirect

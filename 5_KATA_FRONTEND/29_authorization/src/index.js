@@ -4,11 +4,14 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { UserContextProvider } from "./context/userContext";
+import { UseEjemploContextProvider } from "./context/contextEjemplo";
 
 ReactDOM.render(
   <React.StrictMode>
     <UserContextProvider>
-      <App />
+      <UseEjemploContextProvider>
+        <App />
+      </UseEjemploContextProvider>
     </UserContextProvider>
   </React.StrictMode>,
   document.getElementById("root")

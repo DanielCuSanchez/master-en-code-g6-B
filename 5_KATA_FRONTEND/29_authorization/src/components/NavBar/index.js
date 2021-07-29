@@ -5,7 +5,11 @@ import "./NavBar.css";
 import { MdShoppingCart, MdAccountCircle } from "react-icons/md";
 
 export const NavBar = () => {
-  const { setIsLogged, cart } = useUserContext();
+  const {
+    user,
+    setIsLogged,
+    cartObject: { cart },
+  } = useUserContext();
 
   const logout = () => {
     localStorage.removeItem("token");
@@ -26,6 +30,13 @@ export const NavBar = () => {
               <Link to="/cart" className="nav-cart">
                 <MdShoppingCart /> <span>{cart.length}</span>
               </Link>
+
+              {user.role === "ADMIN" && (
+                <Link to="/add-product" className="nav-cart">
+                  Crear producto
+                </Link>
+              )}
+
               <Link to="/settings-account" className="nav-account dropdown">
                 Mi Cuenta
                 <span

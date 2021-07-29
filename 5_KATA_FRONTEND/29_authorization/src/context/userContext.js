@@ -1,36 +1,39 @@
-import { createContext, useCallback, useContext, useEffect, useState } from "react";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 
 import { getProfile } from "../services/user.service";
 
-//Crear un contexto
-export const UserContext = createContext();
+//1- Crear un contexto
+const UserContext = createContext();
 
-// arranque del contexto
+//2- CONTEXT PROVIDER
 export const UserContextProvider = ({ children }) => {
-  // Aquí vendría la lógica de la autenticacion
-
-  //Estado del usuario
+  //AUTH
   const [user, setUser] = useState({});
 
-  //Bandera que hace dictamen si estoy logueado o no
+  //AUTH
   const getTokenLocalStorage = () => {
     const token = localStorage.getItem("token");
     return token;
   };
-
+  //AUTH
   const [token] = useState(getTokenLocalStorage());
+  //AUTH
   const [isLogged, setIsLogged] = useState(false);
-  const [cart, setCart] = useState(()=>{
-    let savedCart = JSON.parse(localStorage.getItem('cart'))
-    return savedCart ? savedCart : [];
-  })
 
+  //AUTH
   useEffect(() => {
     if (token) {
       getProfile()
         .then(({ user }) => {
           if (user) {
             setUser(user);
+            console.log(user);
             setIsLogged(true);
           }
         })
@@ -41,41 +44,76 @@ export const UserContextProvider = ({ children }) => {
     }
   }, [token]);
 
-  const addToCart = useCallback((product) => {
-    let newCart = [...cart]
+  //CARRITO
+  const [cartObject, setCartObject] = useState({ cart: [], user_id: "" });
 
-    let productExist = newCart.findIndex(prod=> prod._id === product._id)
-    if (productExist >= 0){
-      let quantity = newCart[productExist].quantity 
-      quantity >= 0
-        ? (newCart[productExist].quantity = quantity+1)
-        : (newCart[productExist] = {...productExist, quantity: 2});
-    }else{
-      newCart.push({...product, quantity: 1})
+  //CARRITO
+  useEffect(() => {
+    let savedCart = JSON.parse(localStorage.getItem("cart"));
+    console.log(savedCart);
+    if (savedCart && savedCart.user_id === user._id) {
+      console.log("Entre");
+      setCartObject(savedCart);
+    } else {
+      setCartObject({ cart: [], user_id: "" });
     }
+  }, [token, user]);
+  //CARRITO
+  const addToCart = useCallback(
+    (product) => {
+      let newCart = [...cartObject.cart];
+      let newCartObject = { cart: newCart, user_id: user._id };
 
-    setCart(newCart)
-    localStorage.setItem('cart', JSON.stringify(newCart))
-  }, [cart, setCart])
-
-  const removeFromCart = useCallback((productId) => {
-    let newCart = [...cart]
-    let index = newCart.findIndex(prod=> prod._id === productId)
-    if(index){
-      let quantity = newCart[index].quantity
-      if(quantity && quantity > 1){
-        newCart[index] = { ...newCart[index], quantity: quantity-1}
-      }else{
-        newCart.splice(index, 1)
+      let productExist = newCart.findIndex((prod) => prod._id === product._id);
+      if (productExist >= 0) {
+        let quantity = newCart[productExist].quantity;
+        quantity >= 0
+          ? (newCart[productExist].quantity = quantity + 1)
+          : (newCart[productExist] = { ...productExist, quantity: 2 });
+      } else {
+        newCart.push({ ...product, quantity: 1 });
       }
-    }
-    setCart(newCart)
-    localStorage.setItem('cart', JSON.stringify(newCart))
-  }, [cart, setCart])
 
-  const values = { isLogged, setIsLogged, user, cart, addToCart, removeFromCart };
+      setCartObject(newCartObject);
+      localStorage.setItem("cart", JSON.stringify(newCartObject));
+    },
+    [cartObject, setCartObject, user._id]
+  );
+  //CARRITO
+  const removeFromCart = useCallback(
+    (productId) => {
+      let newCart = [...cartObject];
+      let index = newCart.findIndex((prod) => prod._id === productId);
+      if (index) {
+        let quantity = newCart[index].quantity;
+        if (quantity && quantity > 1) {
+          newCart[index] = { ...newCart[index], quantity: quantity - 1 };
+        } else {
+          newCart.splice(index, 1);
+        }
+      }
+      setCartObject(newCart);
+      localStorage.setItem("cart", JSON.stringify(newCart));
+    },
+    [cartObject, setCartObject]
+  );
 
-  return <UserContext.Provider value={values}>{children}</UserContext.Provider>;
+  const valoresDelProveedor = {
+    //variables de la autenticacion
+    isLogged,
+    setIsLogged,
+    user,
+    //Variables del carrito
+    cartObject,
+    addToCart,
+    removeFromCart,
+  };
+
+  return (
+    <UserContext.Provider value={valoresDelProveedor}>
+      {children}
+    </UserContext.Provider>
+  );
 };
 
 export const useUserContext = () => {

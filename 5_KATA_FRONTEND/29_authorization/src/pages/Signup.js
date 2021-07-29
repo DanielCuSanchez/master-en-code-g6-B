@@ -11,7 +11,7 @@ export const Signup = () => {
     gender: "",
     email: "",
     password: "",
-    role: "CUSTOMER",
+    role: "",
   });
   const [isLoading, setIsLoading] = useState(false);
   const [isRegistered, setIsRegistered] = useState(false);
@@ -124,6 +124,20 @@ export const Signup = () => {
                       <option>Selecciona</option>
                       <option value="M">Masculino</option>
                       <option value="F">Femenino</option>
+                    </select>
+                  </div>
+                  <div className="form-group">
+                    <label>Role de APP</label>
+                    <select
+                      required
+                      onChange={onChangeInput}
+                      name="role"
+                      type="select"
+                      className="form-select form-control"
+                    >
+                      <option>Selecciona</option>
+                      <option value="ADMIN">Administrador</option>
+                      <option value="CUSTOMER">Cliente</option>
                     </select>
                   </div>
                   <div className="form-group">
