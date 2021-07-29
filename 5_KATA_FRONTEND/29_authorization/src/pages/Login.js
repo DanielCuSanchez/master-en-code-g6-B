@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, Redirect } from "react-router-dom";
-import { useEjemploContext } from "../context/contextEjemplo";
+
 //import { useUser } from "../hooks/useUser";
 import { login } from "../services/auth.service";
 
@@ -8,10 +8,6 @@ import { useUserContext } from "./../context/userContext";
 
 export const Login = () => {
   //const [isLogged, setIsLogged, user] = useUser();
-
-  const { saludo } = useEjemploContext();
-
-  console.log(saludo);
 
   const context = useUserContext();
   const { setIsLogged, isLogged } = context;

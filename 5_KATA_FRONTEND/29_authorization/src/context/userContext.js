@@ -42,7 +42,7 @@ export const UserContextProvider = ({ children }) => {
           setIsLogged(false);
         });
     }
-  }, [token]);
+  }, [isLogged, token]);
 
   //CARRITO
   const [cartObject, setCartObject] = useState({ cart: [], user_id: "" });

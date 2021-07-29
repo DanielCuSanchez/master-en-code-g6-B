@@ -25,18 +25,20 @@ export const NavBar = () => {
               <img className="navbar-brand" src="devf.png" alt="Devf" />
             </Link>
           </div>
-          <div className="col-12 col-md-6">
-            <div className="nav-options">
-              <Link to="/cart" className="nav-cart">
-                <MdShoppingCart /> <span>{cart.length}</span>
+          <div className="col-12 col-md-3">
+            <Link to="/cart" className="nav-cart">
+              <MdShoppingCart /> <span>{cart.length}</span>
+            </Link>
+          </div>
+          {user.role === "ADMIN" && (
+            <div class="col-12 col-md-3">
+              <Link to="/add-product" className="nav-cart">
+                Crear producto
               </Link>
-
-              {user.role === "ADMIN" && (
-                <Link to="/add-product" className="nav-cart">
-                  Crear producto
-                </Link>
-              )}
-
+            </div>
+          )}
+          <div class="col-12 col-md-3">
+            <div class="nav-options">
               <Link to="/settings-account" className="nav-account dropdown">
                 Mi Cuenta
                 <span

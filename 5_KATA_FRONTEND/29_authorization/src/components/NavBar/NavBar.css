@@ -13,12 +13,13 @@ nav {
 }
 .nav-section {
   width: 100%;
-  justify-content: space-between;
   align-items: center;
+  text-align: center !important;
+  justify-content: center !important;
 }
 .nav-options {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .nav-cart {

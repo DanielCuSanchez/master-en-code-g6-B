@@ -5,8 +5,8 @@ export const DashboardUser = () => {
   const { user } = useUserContext();
   return (
     <div className="container">
-      <div class="row dashboard-section">
-        <div class="col-md-3">
+      <div className="row dashboard-section">
+        <div className="col-md-3">
           <h1>Mi cuenta</h1>
           <h3>
             {user.first_name} {user.last_name}
@@ -17,7 +17,7 @@ export const DashboardUser = () => {
             {user.role}
           </h4>
         </div>
-        <div class="col-md-5">{JSON.stringify(user)}</div>
+        <div className="col-md-5">{JSON.stringify(user)}</div>
       </div>
     </div>
   );
