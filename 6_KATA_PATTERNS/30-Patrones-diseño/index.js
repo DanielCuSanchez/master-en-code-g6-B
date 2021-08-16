@@ -14,8 +14,8 @@ const objeto2 = {
   edad: 26,
 };
 
-console.log(objeto);
-console.log(objeto2);
+// console.log(objeto);
+// console.log(objeto2);
 
 //Prototypes
 
@@ -43,10 +43,12 @@ Cliente.prototype.getName = function () {
 
 let clienteJuan = new Cliente();
 
-//console.log(Cliente.prototype);
+console.log("PROTOTYPES");
+console.log(Cliente.prototype);
 
-//clienteJuan._prototype_.name = "Juan";
+clienteJuan.setName("Juan");
 
+console.log(clienteJuan.name);
 //console.log(Cliente.prototype);
 
 //Clases
@@ -64,7 +66,7 @@ class ClienteClase {
 
 const nuevoCliente = new ClienteClase("David", 22);
 
-console.log(nuevoCliente);
+//console.log(nuevoCliente);
 
 class creaNuevoClienteEcommerce {
   constructor(nombre, edad) {
