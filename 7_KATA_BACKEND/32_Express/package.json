@@ -1,0 +1,23 @@
+{
+  "name": "32_Express",
+  "version": "1.0.0",
+  "description": "Este es un proyecto básico de express",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [
+    "express",
+    "node",
+    "js"
+  ],
+  "author": "Daniel Cu",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
