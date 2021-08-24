@@ -11,7 +11,7 @@ const app = express()
 app.use(express.json())
 
 // Home Api
-app.get("/", (request, response) => {
+app.get("/", (_, response) => {
   response.send(`<h1>Ejercicios básicos Express JS</h1>`)
 })
 
@@ -19,7 +19,7 @@ app.get("/", (request, response) => {
 // Agrega un endpoint '/api/' que responda a una petición de tipo GET con un código de estado 200 
 // y el siguiente json:
 // { 'mensaje': 'hola mundo' }
-app.get("/api/", (request, response) => {
+app.get("/api/", (_, response) => {
   response.status(200).json({ mensaje: 'hola mundo' })
 })
 
@@ -29,6 +29,7 @@ app.get("/api/", (request, response) => {
 // El servidor debe responder con un código de estado 200 y un json como el siguiente:
 // { 'resultado': 7 }
 app.get("/api/suma/", (request, response) => {
+  // console.log(request.query);
   const { num1, num2 } = request.query
   const resultado = parseFloat(num1) + parseFloat(num2)
   if(!isNaN(resultado)){
@@ -43,13 +44,10 @@ app.get("/api/suma/", (request, response) => {
 // con el nombre que sea recibido a través de params.
 // El servidor debe responder con un código de estado 200 y un json como este:
 // { 'usuario': 'Edwin' }
-app.get("/api/usuario/:nombre", (request, response) => {
+app.get("/api/usuario/:nombre/", (request, response) => {
+  // console.log(request.params)
   const { nombre } = request.params
-  if (nombre) {
-    response.status(200).json({ usuario: nombre })
-  } else {
-    response.status(400).json({ mensaje: 'Hubo un error, revisa tus url parameters.' })
-  }
+  response.status(200).json({ usuario: nombre })
 })
 
 // Ejercicio 4
