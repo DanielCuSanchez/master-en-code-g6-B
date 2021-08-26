@@ -27,5 +27,5 @@ export const User = sequelize.define(
   }
 );
 
-User.hasMany(Task, { foreingKey: "userid", sourceKey: "id" });
-Task.belongsTo(User, { foreingKey: "userid", targetId: "id" });
+User.hasMany(Task, { foreignKey: "userid", sourceKey: "id" });
+Task.belongsTo(User, { foreignKey: "userid", targetId: "id" });
