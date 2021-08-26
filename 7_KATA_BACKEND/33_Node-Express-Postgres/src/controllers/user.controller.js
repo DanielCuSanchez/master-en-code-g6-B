@@ -64,3 +64,49 @@ export async function postUser(req, res) {
     res.status(500).json({ response: "Internal error server" });
   }
 }
+
+export async function updateOneUser(req, res) {
+  const { idUser } = req.params;
+  const { name, lastname, email, password } = req.body;
+
+  const userToUpdate = await User.findOne({
+    where: {
+      id: idUser,
+    },
+  });
+  await userToUpdate.update({
+    name,
+    lastname,
+    email,
+    password,
+  });
+  res.status(200).json({
+    response: "user updated",
+  });
+}
+
+export async function deleteOneUser(req, res) {
+  const { idUser } = req.params;
+  try {
+    const countRow = await User.destroy({
+      where: {
+        id: idUser,
+      },
+    });
+
+    if (countRow === 0) {
+      res.status(404).json({
+        response: "Not found",
+      });
+    } else {
+      res.status(200).json({
+        response: "User deleted",
+        count: countRow,
+      });
+    }
+  } catch (error) {
+    res.status(500).json({
+      response: "Error",
+    });
+  }
+}
