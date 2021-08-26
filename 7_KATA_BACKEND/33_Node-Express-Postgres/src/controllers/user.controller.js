@@ -2,9 +2,42 @@
 import { User } from "../models/User";
 
 export async function getUsers(req, res) {
-  res.status(200).json({
-    response: "Este el get de los usuarios",
+  const allUsers = await User.findAll({
+    attributes: ["id", "name", "lastname"],
   });
+
+  res.status(200).json({
+    response: "all users",
+    data: allUsers,
+  });
+}
+
+export async function getOneUser(req, res) {
+  const { idUser } = req.params;
+
+  try {
+    const oneUser = await User.findOne({
+      where: {
+        id: idUser,
+      },
+    });
+
+    if (oneUser === null) {
+      res.status(404).json({
+        response: "not found",
+      });
+      return;
+    }
+
+    res.status(200).json({
+      response: "This is the user",
+      data: oneUser,
+    });
+  } catch (error) {
+    res.status(500).json({
+      response: "Internal error server",
+    });
+  }
 }
 
 export async function postUser(req, res) {
