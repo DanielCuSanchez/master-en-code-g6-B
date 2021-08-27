@@ -20,5 +20,7 @@ export const Task = sequelize.define("tasks", {
   },
   userid: {
     type: Sequelize.INTEGER,
-  },
+  }
+}, {
+  timestamps: false,
 });

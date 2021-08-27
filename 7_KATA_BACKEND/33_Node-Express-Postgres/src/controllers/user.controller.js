@@ -56,12 +56,13 @@ export async function postUser(req, res) {
         fields: ["name", "lastname", "email", "password"],
       }
     );
+
     res
       .status(200)
       .json({ response: "post succesfully", userCreated: newUser });
   } catch (error) {
     console.log(error);
-    res.status(500).json({ response: "Internal error server" });
+    res.status(500).json({ response: "Internal error server", error: error.parent.detail });
   }
 }
 

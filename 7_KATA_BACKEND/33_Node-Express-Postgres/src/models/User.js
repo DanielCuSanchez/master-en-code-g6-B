@@ -17,6 +17,7 @@ export const User = sequelize.define(
     },
     email: {
       type: Sequelize.TEXT,
+      unique: true,
     },
     password: {
       type: Sequelize.TEXT,
