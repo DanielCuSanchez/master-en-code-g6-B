@@ -1,9 +1,11 @@
 import Sequelize from "sequelize";
 
+import config from "../config/index";
+
 export const sequelize = new Sequelize(
-  process.env.DB_HOST,
-  process.env.DB_USER,
-  process.env.DB_PASS,
+  config.DB_DATABASE,
+  config.DB_USER,
+  config.DB_PASS,
   {
     host: "localhost",
     dialect: "postgres",
