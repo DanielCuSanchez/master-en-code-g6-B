@@ -62,7 +62,9 @@ export async function postUser(req, res) {
       .json({ response: "post succesfully", userCreated: newUser });
   } catch (error) {
     console.log(error);
-    res.status(500).json({ response: "Internal error server", error: error.parent.detail });
+    res
+      .status(500)
+      .json({ response: "Internal error server", error: error.parent.detail });
   }
 }
 
