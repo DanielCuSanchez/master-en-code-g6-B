@@ -7,7 +7,7 @@ export const sequelize = new Sequelize(
   config.DB_USER,
   config.DB_PASS,
   {
-    host: "localhost",
+    host: config.DB_HOST,
     dialect: "postgres",
     pool: {
       max: 5,
