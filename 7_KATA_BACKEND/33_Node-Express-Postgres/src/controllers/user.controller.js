@@ -2,9 +2,7 @@
 import { User } from "../models/User";
 
 export async function getUsers(req, res) {
-  const allUsers = await User.findAll({
-    attributes: ["id", "name", "lastname"],
-  });
+  const allUsers = await User.findAll();
 
   res.status(200).json({
     response: "all users",
