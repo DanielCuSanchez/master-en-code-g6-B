@@ -18,6 +18,14 @@ const User = new Schema(
       type: String,
       required: true,
     },
+    // projects: {
+    //   type: Array[ObjectId],
+    //   ref: "projects",
+    // },
+    // task: {
+    //   type: ObjectId,
+    //   ref: "tasks",
+    // },
     is_active: {
       type: Boolean,
       default: true,
