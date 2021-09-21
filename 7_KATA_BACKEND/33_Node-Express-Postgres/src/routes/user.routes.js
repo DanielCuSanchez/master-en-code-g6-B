@@ -1,6 +1,5 @@
 import { Router } from "express";
 //Importing middlewares
-
 import {
   validatePostUser,
   encryptPasswordUser,

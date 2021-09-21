@@ -38,8 +38,8 @@ export async function getOneUser(req, res) {
   }
 }
 
-export async function postUser(req, res) {
-  const { name, lastname, email, password } = req.body;
+export async function postUser(body) {
+  const { name, lastname, email, password } = body;
   //console.log(name, lastname, email, password, "😀");
 
   try {
@@ -54,15 +54,10 @@ export async function postUser(req, res) {
         fields: ["name", "lastname", "email", "password"],
       }
     );
-
-    res
-      .status(200)
-      .json({ response: "post succesfully", userCreated: newUser });
+    return newUser;
   } catch (error) {
     console.log(error);
-    res
-      .status(500)
-      .json({ response: "Internal error server", error: error.parent.detail });
+    return error;
   }
 }
 
