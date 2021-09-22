@@ -1,10 +1,16 @@
 import { Router } from "express";
-import { signup, signin } from "../controllers/auth.controller";
+import { registro, login } from "../controllers/auth.controller";
+
+//Importing middlewares
+import {
+  validatePostUser,
+  encryptPasswordUser,
+} from "../middlewares/user.middlewares";
 
 const router = Router();
 
-router.post("/signup", signup);
+router.post("/registro", validatePostUser, encryptPasswordUser, registro);
 
-router.post("/signin", signin);
+router.post("/login", login);
 
 export default router;

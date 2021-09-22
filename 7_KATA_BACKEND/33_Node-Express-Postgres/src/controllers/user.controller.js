@@ -10,9 +10,7 @@ export async function getUsers(req, res) {
   });
 }
 
-export async function getOneUser(req, res) {
-  const { idUser } = req.params;
-
+export async function getOneUser(idUser) {
   try {
     const oneUser = await User.findOne({
       where: {
@@ -21,20 +19,11 @@ export async function getOneUser(req, res) {
     });
 
     if (oneUser === null) {
-      res.status(404).json({
-        response: "not found",
-      });
       return;
     }
-
-    res.status(200).json({
-      response: "This is the user",
-      data: oneUser,
-    });
+    return oneUser;
   } catch (error) {
-    res.status(500).json({
-      response: "Internal error server",
-    });
+    return error;
   }
 }
 

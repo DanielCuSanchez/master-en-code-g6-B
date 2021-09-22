@@ -38,3 +38,10 @@ export const encryptPasswordUser = (req, res, next) => {
 
   next();
 };
+
+export const validateEncryptedPassword = (
+  normalPassword,
+  passwordEscrypted
+) => {
+  return bcrypt.compareSync(normalPassword, passwordEscrypted);
+};
