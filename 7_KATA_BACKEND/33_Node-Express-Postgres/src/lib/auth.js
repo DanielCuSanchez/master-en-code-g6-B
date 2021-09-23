@@ -1,18 +1,18 @@
 //Importacion de paquete
 import jwt from 'jsonwebtoken';
+import config from '../config';
 
 //Funcion normal
 export const createToken = async (id) => {
 	//Generar el token
-	const token = await jwt.sign({ payload: { id } }, 'secreto', {
+	const token = await jwt.sign({ payload: { id } }, config.SECRET_JWT, {
 		expiresIn: '1d',
 	});
-
 	return token;
 };
 //Funcion normal
 export const validateToken = (token) => {
-	return jwt.verify(token, 'secreto', function (error, decodedToken) {
+	return jwt.verify(token, config.SECRET_JWT, function (error, decodedToken) {
 		if (error) {
 			return false;
 		} else {
@@ -20,7 +20,6 @@ export const validateToken = (token) => {
 		}
 	});
 };
-
 //Funcion middleware
 export const verifyToken = (req, res, next) => {
 	//Primer paso verificar el token
