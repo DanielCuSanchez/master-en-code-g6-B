@@ -1,5 +1,5 @@
-import Joi from "joi";
-import bcrypt from "bcrypt";
+import Joi from 'joi';
+import bcrypt from 'bcrypt';
 
 const schemaUser = Joi.object({
   name: Joi.string().min(2).required(),
