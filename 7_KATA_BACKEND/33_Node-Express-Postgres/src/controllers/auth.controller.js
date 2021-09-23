@@ -9,8 +9,20 @@ export const registro = async (req, res) => {
 };
 
 export const login = async (req, res) => {
+	console.log('😀', req.body);
+
+	if (req.body === {}) {
+		res.status(400).json({ msg: 'objeto vacio' });
+		return;
+	}
 	//primer paso consultar si existe el correo electronico
 	const userExist = await getOneUserByEmail(req.body.email);
+
+	if (!userExist) {
+		res.status(400).json({ msg: 'Correo no existe' });
+		return;
+	}
+
 	if (req.body.email !== userExist.dataValues.email) {
 		res.status(400).json({ msg: 'email invalido' });
 		return;

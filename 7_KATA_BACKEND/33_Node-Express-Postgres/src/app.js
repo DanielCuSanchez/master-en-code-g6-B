@@ -1,6 +1,7 @@
 //Importing modules
 import express from 'express';
 import morgan from 'morgan';
+import cors from 'cors';
 
 import path from 'path';
 
@@ -14,6 +15,7 @@ import taskRoutesViews from './routes/task.routes.views';
 const app = express();
 
 //Middlewares
+app.use(cors());
 app.use(express.static(__dirname + '/public'));
 app.use(express.json());
 app.use(morgan('dev'));
