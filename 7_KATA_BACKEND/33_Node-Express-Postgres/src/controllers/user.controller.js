@@ -44,8 +44,8 @@ export async function getOneUserByEmail(email) {
 	}
 }
 
-export async function postUser(body) {
-	const { name, lastname, email, password } = body;
+export async function postUserManual(req, res) {
+	const { name, lastname, email, password } = req.body;
 	//console.log(name, lastname, email, password, "😀");
 
 	try {
@@ -60,10 +60,10 @@ export async function postUser(body) {
 				fields: ['name', 'lastname', 'email', 'password'],
 			}
 		);
-		return newUser;
+		res.status(201).json({ msg: newUser });
 	} catch (error) {
 		console.log(error);
-		return error;
+		res.status(400).json({ msg: 'Error' });
 	}
 }
 
