@@ -10,7 +10,6 @@ export const sequelize = new Sequelize(
 	{
 		host: config.DB_HOST,
 		dialect: 'postgres',
-		port: '25060',
 		sslmode: true,
 		pool: {
 			max: 5,
@@ -19,11 +18,5 @@ export const sequelize = new Sequelize(
 			idle: 10000,
 		},
 		logging: false,
-		dialectOptions: {
-			bigNumberStrings: true,
-			ssl: {
-				ca: fs.readFileSync(__dirname + '/ca-certificate.crt'),
-			},
-		},
 	}
 );

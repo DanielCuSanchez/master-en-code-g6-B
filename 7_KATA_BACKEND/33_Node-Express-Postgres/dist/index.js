@@ -1,5 +1,7 @@
 "use strict";
 
+require("@babel/polyfill");
+
 var _app = _interopRequireDefault(require("./app"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
@@ -19,10 +21,10 @@ function _main() {
         switch (_context.prev = _context.next) {
           case 0:
             _context.next = 2;
-            return _app["default"].listen(3000);
+            return _app["default"].listen(3001);
 
           case 2:
-            console.log("http://localhost:3000/");
+            console.log('http://localhost:3001/');
 
           case 3:
           case "end":
