@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Sr. y Sra. Smith",
+    "year": "2000",
+    "genres": ["action"],
+    "image": "link_a_la_portada.movie/image.jpg",
+    "actors": [
+      {
+        "_id": "61566167c6d738b191e3fff6",
+        "name": "Brad Pitt"
+      },
+      {
+        "_id": "61566167c6d738b191e3fff7",
+        "name": "Angelina Jolie"
+      },
+      {
+        "name": "Adam Brody",
+        "birthdate": "15 de diciembre de 1979"
+      }
+    ]
+  }
+]
