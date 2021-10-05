@@ -1,4 +1,4 @@
-const { Schema, model }= require('mongoose');
+import { Schema, model } from 'mongoose';
 
 const movieSchema = new Schema({
   name: {type: String, required: true},
@@ -11,6 +11,4 @@ const movieSchema = new Schema({
   rating: String
 }, { timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' } })
 
-const Movie = model('Movie', movieSchema);
-
-module.exports = { Movie }
+export const Movie = model('Movie', movieSchema);
