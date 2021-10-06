@@ -7,7 +7,7 @@ const movieSchema = new Schema({
   genres: Array,
   director: String,
   duration: Number,
-  actors: [{name: String, birthdate: Date, biopic: String}],
+  actors: [{type: Schema.Types.ObjectId, ref: 'Actor'}],
   rating: String
 }, { timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' } })
 

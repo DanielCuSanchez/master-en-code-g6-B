@@ -1,3 +1,4 @@
+import { Actor } from '../models/Actor';
 import { Movie } from '../models/Movie';
 
 export async function deleteOneMovie(req, res) {
@@ -13,7 +14,7 @@ export async function deleteOneMovie(req, res) {
 export async function getOneMovie(req, res) {
   const {idMovie} = req.params;
   try{
-    const movie = await Movie.findById(idMovie)
+    const movie = await Movie.findById(idMovie).populate('actors')
     return res.json(movie);
   }catch(error){ 
     return res.status(400).json({message: error.message})

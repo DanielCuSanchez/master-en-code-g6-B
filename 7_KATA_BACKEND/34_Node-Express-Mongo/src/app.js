@@ -4,8 +4,8 @@ import morgan from 'morgan';
 
 
 import db from './models';
-import movieRoutes from './routes/movie.routes';
 import actorRoutes from './routes/actor.routes';
+import movieRoutes from './routes/movie.routes';
 
 //Inicializando DB
 db().then(() => console.log('Conectado a la db'))
