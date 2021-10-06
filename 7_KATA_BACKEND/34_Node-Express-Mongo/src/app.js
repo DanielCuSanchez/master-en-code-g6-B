@@ -5,6 +5,7 @@ import morgan from 'morgan';
 
 import db from './models';
 import movieRoutes from './routes/movie.routes';
+import actorRoutes from './routes/actor.routes';
 
 //Inicializando DB
 db().then(() => console.log('Conectado a la db'))
@@ -22,7 +23,7 @@ app.get('/', (req, res )=> {
 })
 
 app.use('/movie', movieRoutes);
-// app.use('/actor', actorRoutes);
+app.use('/actor', actorRoutes);
 
 
 export default app;
